@@ -1,8 +1,6 @@
-FROM php:8.1-apache
+FROM php:8.1-apache-bullseye
 
-# Force fresh Apache MPM config (mpm_prefork required for mod_php)
-
-# Install required PHP extensions
+# Install required packages and PHP extensions
 RUN apt-get update && apt-get install -y \
     libpng-dev \
     libjpeg-dev \
@@ -14,13 +12,14 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install gd mysqli pdo pdo_mysql zip gettext \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Fix Apache MPM conflict: remove mpm_event/mpm_worker symlinks, enable only mpm_prefork
-RUN rm -f /etc/apache2/mods-enabled/mpm_event.conf \
-          /etc/apache2/mods-enabled/mpm_event.load \
-          /etc/apache2/mods-enabled/mpm_worker.conf \
-          /etc/apache2/mods-enabled/mpm_worker.load \
-    && a2enmod mpm_prefork \
-    && a2enmod rewrite
+# Fix Apache MPM: Bullseye uses mpm_prefork for mod_php
+# Disable all MPMs first, then enable ONLY prefork
+RUN a2dismod mpm_event mpm_worker 2>/dev/null; \
+    a2dismod mpm_prefork 2>/dev/null; \
+    a2enmod mpm_prefork; \
+    a2enmod rewrite; \
+    echo "MPM status:"; \
+    ls /etc/apache2/mods-enabled/mpm*
 
 # Set working directory
 WORKDIR /var/www/html
@@ -38,7 +37,7 @@ RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 777 /var/www/html/tmp \
     && chmod -R 777 /var/www/html/company
 
-# Apache config
+# Apache config: allow .htaccess
 RUN echo '<Directory /var/www/html>\n\
     AllowOverride All\n\
     Require all granted\n\
