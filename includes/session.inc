@@ -39,7 +39,10 @@ class SessionManager
 			{
 				// Reset session data and regenerate id
 				$_SESSION = array();
-				$_SESSION['IPaddress'] = $_SERVER['REMOTE_ADDR'];
+				// Use X-Forwarded-For if behind a proxy (e.g. Railway)
+				$_SESSION['IPaddress'] = !empty($_SERVER['HTTP_X_FORWARDED_FOR'])
+					? trim(explode(',', $_SERVER['HTTP_X_FORWARDED_FOR'])[0])
+					: $_SERVER['REMOTE_ADDR'];
 				$_SESSION['userAgent'] = @$_SERVER['HTTP_USER_AGENT'];
 				$this->regenerateSession();
 			}
@@ -65,7 +68,12 @@ class SessionManager
 		if (!isset($_SESSION['IPaddress']) || !isset($_SESSION['userAgent']))
 			return false;
 
-		if ($_SESSION['IPaddress'] != $_SERVER['REMOTE_ADDR'])
+		// Use X-Forwarded-For if behind a proxy (e.g. Railway)
+		$client_ip = !empty($_SERVER['HTTP_X_FORWARDED_FOR'])
+			? trim(explode(',', $_SERVER['HTTP_X_FORWARDED_FOR'])[0])
+			: $_SERVER['REMOTE_ADDR'];
+
+		if ($_SESSION['IPaddress'] != $client_ip)
 			return false;
 
 		if ( $_SESSION['userAgent'] != @$_SERVER['HTTP_USER_AGENT'])
