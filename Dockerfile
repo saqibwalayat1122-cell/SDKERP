@@ -55,4 +55,3 @@ RUN apache2ctl configtest && echo "Apache config OK"
 EXPOSE 80
 
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
-CMD ["apache2ctl", "-D", "FOREGROUND"]

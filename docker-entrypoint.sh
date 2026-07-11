@@ -1,7 +1,8 @@
 #!/bin/bash
-set -e
 
 echo "=== FrontAccounting Railway Startup ==="
+echo "🔍 PORT: ${PORT:-not-set}"
+echo "🔍 MYSQLHOST: ${MYSQLHOST:-not-set}"
 
 # Get DB connection details from environment
 DB_HOST="${MYSQLHOST:-localhost}"
@@ -10,8 +11,8 @@ DB_NAME="${MYSQLDATABASE:-frontacc}"
 DB_USER="${MYSQLUSER:-root}"
 DB_PASS="${MYSQLPASSWORD:-}"
 
-# Generate config_db.php from Railway environment variables
-cat > /var/www/html/config_db.php << EOF
+# Generate config_db.php from environment variables
+cat > /var/www/html/config_db.php << PHPEOF
 <?php
 
 \$def_coy = 0;
@@ -74,15 +75,15 @@ cat > /var/www/html/config_db.php << EOF
     'dbpassword' => '${DB_PASS}',
   ),
 );
-EOF
+PHPEOF
 
-echo "✅ config_db.php generated with host: ${DB_HOST}:${DB_PORT}"
+echo "✅ config_db.php generated"
 
 # Fix permissions
-chown www-data:www-data /var/www/html/config_db.php
+chown www-data:www-data /var/www/html/config_db.php 2>/dev/null || true
 chmod 644 /var/www/html/config_db.php
 
-# Run DB import in background (so Apache starts immediately)
+# DB import in background
 (
   echo "📦 Background: Waiting for MySQL at ${DB_HOST}:${DB_PORT}..."
   MAX_WAIT=120
@@ -90,7 +91,7 @@ chmod 644 /var/www/html/config_db.php
   until mysql -h "$DB_HOST" -P "$DB_PORT" -u "$DB_USER" -p"$DB_PASS" -e "SELECT 1;" > /dev/null 2>&1; do
     COUNT=$((COUNT+1))
     if [ $COUNT -ge $MAX_WAIT ]; then
-      echo "⚠️ MySQL not reachable after ${MAX_WAIT}s. Check MYSQLHOST/MYSQLPORT variables."
+      echo "⚠️ MySQL not reachable after ${MAX_WAIT}s"
       exit 0
     fi
     echo "⏳ Waiting for MySQL... ($COUNT/$MAX_WAIT)"
@@ -104,21 +105,14 @@ chmod 644 /var/www/html/config_db.php
     if [ "$TABLE_COUNT" -le "1" ]; then
       echo "🚀 Importing database..."
       mysql -h "$DB_HOST" -P "$DB_PORT" -u "$DB_USER" -p"$DB_PASS" "$DB_NAME" < /var/www/html/frontacc_backup.sql
-      echo "✅ Database imported! Tables: $(mysql -h "$DB_HOST" -P "$DB_PORT" -u "$DB_USER" -p"$DB_PASS" "$DB_NAME" -e 'SHOW TABLES;' 2>/dev/null | wc -l)"
+      echo "✅ Database imported!"
     else
       echo "✅ DB already has ${TABLE_COUNT} tables, skipping import"
     fi
-  else
-    echo "⚠️ No frontacc_backup.sql found"
   fi
 ) &
 
-echo "🌐 Starting Apache immediately..."
-
-# Configure Apache to listen on Railway's PORT (default 80)
-APP_PORT="${PORT:-80}"
-echo "📡 Setting Apache to listen on port: ${APP_PORT}"
-sed -i "s/Listen 80/Listen ${APP_PORT}/" /etc/apache2/ports.conf
-sed -i "s/<VirtualHost \*:80>/<VirtualHost *:${APP_PORT}>/" /etc/apache2/sites-available/000-default.conf
-
-exec "$@"
+# Start Apache directly (source envvars first for Ubuntu)
+echo "🌐 Starting Apache on port 80..."
+source /etc/apache2/envvars
+exec apache2 -D FOREGROUND
