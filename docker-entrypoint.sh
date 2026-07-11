@@ -112,7 +112,20 @@ chmod 644 /var/www/html/config_db.php
   fi
 ) &
 
-# Start Apache directly (source envvars first for Ubuntu)
-echo "🌐 Starting Apache on port 80..."
+# Configure Apache for Railway PORT (Railway injects PORT=8080)
+APP_PORT="${PORT:-80}"
+echo "📡 Setting Apache to listen on port: ${APP_PORT}"
+
+# Update ports.conf
+sed -i "s/Listen 80/Listen ${APP_PORT}/g" /etc/apache2/ports.conf
+
+# Update VirtualHost port
+sed -i "s/<VirtualHost \*:80>/<VirtualHost *:${APP_PORT}>/g" /etc/apache2/sites-available/000-default.conf
+
+# Fix ServerName warning
+echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
+# Start Apache directly (source envvars required on Ubuntu)
+echo "🌐 Starting Apache on port ${APP_PORT}..."
 source /etc/apache2/envvars
 exec apache2 -D FOREGROUND
