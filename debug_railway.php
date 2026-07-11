@@ -11,12 +11,20 @@ echo "MYSQLHOST: " . ($_ENV['MYSQLHOST'] ?? getenv('MYSQLHOST') ?? 'NOT SET') . 
 echo "MYSQLPORT: " . ($_ENV['MYSQLPORT'] ?? getenv('MYSQLPORT') ?? 'NOT SET') . "\n";
 echo "MYSQLDATABASE: " . ($_ENV['MYSQLDATABASE'] ?? getenv('MYSQLDATABASE') ?? 'NOT SET') . "\n";
 echo "MYSQLUSER: " . ($_ENV['MYSQLUSER'] ?? getenv('MYSQLUSER') ?? 'NOT SET') . "\n";
+$env_pass = $_ENV['MYSQLPASSWORD'] ?? getenv('MYSQLPASSWORD') ?? '';
+echo "MYSQLPASSWORD length: " . strlen($env_pass) . "\n";
+if (strlen($env_pass) > 4) {
+    echo "MYSQLPASSWORD prefix/suffix: " . substr($env_pass, 0, 2) . "..." . substr($env_pass, -2) . "\n";
+} else {
+    echo "MYSQLPASSWORD value: " . ($env_pass ? 'Set but short' : 'EMPTY') . "\n";
+}
 echo "PORT: " . ($_ENV['PORT'] ?? getenv('PORT') ?? 'NOT SET') . "\n";
 echo "HTTP_X_FORWARDED_FOR: " . ($_SERVER['HTTP_X_FORWARDED_FOR'] ?? 'NOT SET') . "\n";
 echo "REMOTE_ADDR: " . ($_SERVER['REMOTE_ADDR'] ?? 'NOT SET') . "\n\n";
 
 // 2. config_db.php check
 echo "--- CONFIG_DB.PHP ---\n";
+$config_pass = '';
 if (file_exists(__DIR__ . '/config_db.php')) {
     echo "EXISTS: YES\n";
     require_once __DIR__ . '/config_db.php';
@@ -25,18 +33,31 @@ if (file_exists(__DIR__ . '/config_db.php')) {
     echo "DB Name: " . $db_connections[0]['dbname'] . "\n";
     echo "DB User: " . $db_connections[0]['dbuser'] . "\n";
     echo "Table Prefix: " . $db_connections[0]['tbpref'] . "\n";
+    $config_pass = $db_connections[0]['dbpassword'];
+    echo "DB Password length: " . strlen($config_pass) . "\n";
+    if (strlen($config_pass) > 4) {
+        echo "DB Password prefix/suffix: " . substr($config_pass, 0, 2) . "..." . substr($config_pass, -2) . "\n";
+    }
 } else {
     echo "EXISTS: NO - config_db.php MISSING!\n";
 }
 echo "\n";
 
 // 3. Database Connection Test
-echo "--- DATABASE CONNECTION ---\n";
-$host = getenv('MYSQLHOST') ?: 'localhost';
-$port = getenv('MYSQLPORT') ?: '3306';
-$dbname = getenv('MYSQLDATABASE') ?: 'frontacc';
-$user = getenv('MYSQLUSER') ?: 'root';
-$pass = getenv('MYSQLPASSWORD') ?: '';
+echo "--- DATABASE CONNECTION (using config_db.php values) ---\n";
+if (!empty($db_connections[0])) {
+    $host = $db_connections[0]['host'];
+    $port = $db_connections[0]['port'] ?? '3306';
+    $dbname = $db_connections[0]['dbname'];
+    $user = $db_connections[0]['dbuser'];
+    $pass = $db_connections[0]['dbpassword'];
+} else {
+    $host = getenv('MYSQLHOST') ?: 'localhost';
+    $port = getenv('MYSQLPORT') ?: '3306';
+    $dbname = getenv('MYSQLDATABASE') ?: 'frontacc';
+    $user = getenv('MYSQLUSER') ?: 'root';
+    $pass = getenv('MYSQLPASSWORD') ?: '';
+}
 
 try {
     $pdo = new PDO("mysql:host=$host;port=$port;dbname=$dbname", $user, $pass);
