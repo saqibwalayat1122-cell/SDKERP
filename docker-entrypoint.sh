@@ -114,4 +114,11 @@ chmod 644 /var/www/html/config_db.php
 ) &
 
 echo "🌐 Starting Apache immediately..."
+
+# Configure Apache to listen on Railway's PORT (default 80)
+APP_PORT="${PORT:-80}"
+echo "📡 Setting Apache to listen on port: ${APP_PORT}"
+sed -i "s/Listen 80/Listen ${APP_PORT}/" /etc/apache2/ports.conf
+sed -i "s/<VirtualHost \*:80>/<VirtualHost *:${APP_PORT}>/" /etc/apache2/sites-available/000-default.conf
+
 exec "$@"
