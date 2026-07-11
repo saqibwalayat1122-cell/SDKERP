@@ -1,5 +1,7 @@
 FROM php:8.1-apache
 
+# Force fresh Apache MPM config (mpm_prefork required for mod_php)
+
 # Install required PHP extensions
 RUN apt-get update && apt-get install -y \
     libpng-dev \
@@ -12,8 +14,11 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install gd mysqli pdo pdo_mysql zip gettext \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Fix Apache MPM conflict and enable required modules
-RUN a2dismod mpm_event || true \
+# Fix Apache MPM conflict: remove mpm_event/mpm_worker symlinks, enable only mpm_prefork
+RUN rm -f /etc/apache2/mods-enabled/mpm_event.conf \
+          /etc/apache2/mods-enabled/mpm_event.load \
+          /etc/apache2/mods-enabled/mpm_worker.conf \
+          /etc/apache2/mods-enabled/mpm_worker.load \
     && a2enmod mpm_prefork \
     && a2enmod rewrite
 
