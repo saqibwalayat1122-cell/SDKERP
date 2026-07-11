@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
     libfreetype6-dev \
     libzip-dev \
     unzip \
+    default-mysql-client \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd mysqli pdo pdo_mysql zip gettext \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
