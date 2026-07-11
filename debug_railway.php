@@ -22,6 +22,20 @@ echo "PORT: " . ($_ENV['PORT'] ?? getenv('PORT') ?? 'NOT SET') . "\n";
 echo "HTTP_X_FORWARDED_FOR: " . ($_SERVER['HTTP_X_FORWARDED_FOR'] ?? 'NOT SET') . "\n";
 echo "REMOTE_ADDR: " . ($_SERVER['REMOTE_ADDR'] ?? 'NOT SET') . "\n\n";
 
+echo "--- ALL DB/PASS RELATED ENV VARS IN CONTAINER ---\n";
+foreach (array_merge($_ENV, getenv()) as $key => $val) {
+    $upperKey = strtoupper($key);
+    if (strpos($upperKey, 'MYSQL') !== false || strpos($upperKey, 'PASS') !== false || strpos($upperKey, 'DB') !== false || strpos($upperKey, 'URL') !== false) {
+        // Do not print values of password containing vars, print length only
+        if (strpos($upperKey, 'PASS') !== false || strpos($upperKey, 'SECRET') !== false || strpos($upperKey, 'KEY') !== false || strpos($upperKey, 'URL') !== false) {
+            echo "$key: [HIDDEN] (length: " . strlen($val) . ")\n";
+        } else {
+            echo "$key: $val\n";
+        }
+    }
+}
+echo "\n";
+
 // 2. config_db.php check
 echo "--- CONFIG_DB.PHP ---\n";
 $config_pass = '';
