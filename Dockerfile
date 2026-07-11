@@ -37,6 +37,18 @@ RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 777 /var/www/html/tmp \
     && chmod -R 777 /var/www/html/company
 
+# Fix PHP session path - www-data must be able to write sessions
+RUN mkdir -p /var/lib/php/sessions \
+    && chown -R www-data:www-data /var/lib/php/sessions \
+    && chmod 777 /var/lib/php/sessions
+
+# Configure PHP for Railway (session path + error display)
+RUN echo "session.save_path = /var/lib/php/sessions" >> /etc/php/8.1/apache2/php.ini \
+    && echo "display_errors = On" >> /etc/php/8.1/apache2/php.ini \
+    && echo "error_reporting = E_ALL & ~E_NOTICE & ~E_DEPRECATED" >> /etc/php/8.1/apache2/php.ini \
+    && echo "upload_max_filesize = 20M" >> /etc/php/8.1/apache2/php.ini \
+    && echo "post_max_size = 20M" >> /etc/php/8.1/apache2/php.ini
+
 # Apache virtual host config
 RUN echo '<VirtualHost *:80>\n\
     DocumentRoot /var/www/html\n\
