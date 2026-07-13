@@ -48,12 +48,12 @@ class SessionManager
 			}
 			// Give a 5% chance of the session id changing on any request
 			// Commented out to prevent unexpected logouts due to overlapping AJAX calls
-			
+			/*
 			elseif (rand(1, 100) <= 5)
 			{
 				$this->regenerateSession();
 			}
-			
+			*/
 		}
 		else
 		{
