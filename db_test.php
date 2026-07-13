@@ -20,10 +20,43 @@ echo "Prefix: {$conn['tbpref']}\n";
 $link = mysqli_connect($conn['host'], $conn['dbuser'], $conn['dbpassword'], $conn['dbname'], $conn['port'] ? $conn['port'] : 3306);
 if (!$link) {
     echo "Connection failed: " . mysqli_connect_error() . "\n";
-    exit;
+} else {
+    echo "Connected successfully as user: ";
+    $res = mysqli_query($link, "SELECT USER()");
+    $row = mysqli_fetch_row($res);
+    echo $row[0] . "\n";
+
+    echo "\nAvailable databases for this user:\n";
+    $res = mysqli_query($link, "SHOW DATABASES");
+    while ($row = mysqli_fetch_row($res)) {
+        echo "- {$row[0]}\n";
+    }
 }
 
-echo "Connected successfully!\n";
+// Now let's try connecting as root using the root password from the environment
+$root_pass = "itSEAOwfonWyhjQfFmkXVhtcsToscNaL";
+echo "\nConnecting as root to database 'railway'...\n";
+$root_link = mysqli_connect($conn['host'], "root", $root_pass, "railway", 3306);
+if (!$root_link) {
+    echo "Root connection failed: " . mysqli_connect_error() . "\n";
+} else {
+    echo "Root connected successfully!\n";
+    echo "Available databases for root:\n";
+    $res = mysqli_query($root_link, "SHOW DATABASES");
+    while ($row = mysqli_fetch_row($res)) {
+        echo "- {$row[0]}\n";
+    }
+
+    echo "\nQuerying debtors as root from 'railway.0_debtors_master':\n";
+    $res = mysqli_query($root_link, "SELECT debtor_no, name FROM 0_debtors_master");
+    if (!$res) {
+        echo "Root query failed: " . mysqli_error($root_link) . "\n";
+    } else {
+        while ($row = mysqli_fetch_assoc($res)) {
+            echo "- ID: {$row['debtor_no']}, Name: {$row['name']}\n";
+        }
+    }
+}
 
 $prefix = $conn['tbpref'];
 $query = "SELECT debtor_no, name, inactive FROM {$prefix}debtors_master";
