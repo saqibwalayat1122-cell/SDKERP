@@ -104,7 +104,7 @@ chmod 644 /var/www/html/config_db.php
     TABLE_COUNT=$(mysql -h "$DB_HOST" -P "$DB_PORT" -u "$DB_USER" -p"$DB_PASS" "$DB_NAME" -e "SHOW TABLES;" 2>/dev/null | wc -l || echo "0")
     if [ "$TABLE_COUNT" -le "1" ]; then
       echo "🚀 Importing database..."
-      mysql -h "$DB_HOST" -P "$DB_PORT" -u "$DB_USER" -p"$DB_PASS" "$DB_NAME" < /var/www/html/frontacc_backup.sql
+      mysql -h "$DB_HOST" -P "$DB_PORT" -u "$DB_USER" -p"$DB_PASS" --init-command="SET SESSION sql_mode='';" "$DB_NAME" < /var/www/html/frontacc_backup.sql
       echo "✅ Database imported!"
     else
       echo "✅ DB already has ${TABLE_COUNT} tables, skipping import"

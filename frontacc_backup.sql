@@ -1,4 +1,4 @@
--- MariaDB dump 10.19  Distrib 10.4.32-MariaDB, for Win64 (AMD64)
+﻿-- MariaDB dump 10.19  Distrib 10.4.32-MariaDB, for Win64 (AMD64)
 --
 -- Host: localhost    Database: frontacc
 -- ------------------------------------------------------
@@ -92,7 +92,7 @@ CREATE TABLE `0_audit_trail` (
   PRIMARY KEY (`id`),
   KEY `Seq` (`fiscal_year`,`gl_date`,`gl_seq`),
   KEY `Type_and_Number` (`type`,`trans_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -101,7 +101,7 @@ CREATE TABLE `0_audit_trail` (
 
 LOCK TABLES `0_audit_trail` WRITE;
 /*!40000 ALTER TABLE `0_audit_trail` DISABLE KEYS */;
-INSERT INTO `0_audit_trail` VALUES (1,18,1,1,'2021-05-05 09:08:02',NULL,1,'2021-05-05',0),(2,25,1,1,'2021-05-05 09:08:14',NULL,1,'2021-05-05',1),(3,30,1,1,'2021-05-05 09:09:54',NULL,1,'2021-05-10',0),(4,13,1,1,'2021-05-05 09:09:55',NULL,1,'2021-05-10',13),(5,10,1,1,'2021-05-05 09:09:55',NULL,1,'2021-05-10',14),(6,12,1,1,'2021-05-05 09:09:55',NULL,1,'2021-05-10',15),(7,29,1,1,'2021-05-05 09:18:49','Quick production.',1,'2021-05-05',2),(8,18,2,1,'2021-05-05 09:22:32',NULL,1,'2021-05-05',0),(9,25,2,1,'2021-05-05 09:22:32',NULL,1,'2021-05-05',3),(10,20,1,1,'2021-05-05 09:22:32',NULL,1,'2021-05-05',4),(11,30,2,1,'2021-05-07 02:55:15',NULL,1,'2021-05-07',0),(12,13,2,1,'2021-05-07 02:55:16',NULL,1,'2021-05-07',7),(13,10,2,1,'2021-05-07 02:55:16',NULL,1,'2021-05-07',8),(14,12,2,1,'2021-05-07 02:55:16',NULL,1,'2021-05-07',9),(15,30,3,1,'2021-05-07 03:08:24',NULL,1,'2021-05-07',0),(16,30,4,1,'2021-05-07 04:18:44',NULL,1,'2021-05-07',0),(17,30,5,1,'2021-05-07 06:42:41',NULL,1,'2021-05-07',0),(18,13,3,1,'2021-05-07 06:42:41',NULL,1,'2021-05-07',10),(19,10,3,1,'2021-05-07 06:42:41',NULL,1,'2021-05-07',11),(20,30,6,1,'2021-05-07 09:02:35',NULL,1,'2021-05-07',0),(21,30,7,1,'2021-05-07 09:05:38',NULL,1,'2021-05-07',0),(22,13,4,1,'2021-05-07 09:05:38',NULL,1,'2021-05-07',0),(23,10,4,1,'2021-05-07 09:05:38',NULL,1,'2021-05-07',0),(24,12,3,1,'2021-05-07 09:05:38',NULL,1,'2021-05-07',0),(25,26,1,1,'2021-05-07 10:59:34',NULL,1,'2021-05-07',NULL),(26,29,1,1,'2021-05-07 10:59:01','Production.',1,'2021-05-07',5),(27,26,1,1,'2021-05-07 10:59:34','Released.',1,'2021-05-07',6),(28,1,1,1,'2021-05-07 11:01:00',NULL,1,'2021-05-07',12),(29,30,8,1,'2022-01-21 06:13:06',NULL,2,'2022-01-21',0),(30,13,5,1,'2022-01-21 06:13:06',NULL,2,'2022-01-21',0),(31,10,5,1,'2022-01-21 06:13:06',NULL,2,'2022-01-21',0),(32,12,4,1,'2022-01-21 06:13:06',NULL,2,'2022-01-21',0),(33,18,3,1,'2022-01-21 06:14:14',NULL,2,'2022-01-21',0),(34,25,3,1,'2022-01-21 06:14:14',NULL,2,'2022-01-21',0),(35,20,2,1,'2022-01-21 06:14:14',NULL,2,'2022-01-21',0),(36,0,1,1,'2022-01-21 06:15:35',NULL,1,'2021-12-31',16),(37,30,9,1,'2026-07-10 06:52:40','',2,'2022-12-06',0),(38,13,6,1,'2026-07-10 06:52:40','',2,'2022-12-06',0),(39,10,6,1,'2026-07-10 06:52:40','',2,'2022-12-06',0),(40,12,5,1,'2026-07-10 06:52:40','',2,'2022-12-06',0);
+INSERT INTO `0_audit_trail` VALUES (1,18,1,1,'2021-05-05 09:08:02',NULL,1,'2021-05-05',0),(2,25,1,1,'2021-05-05 09:08:14',NULL,1,'2021-05-05',1),(3,30,1,1,'2021-05-05 09:09:54',NULL,1,'2021-05-10',0),(4,13,1,1,'2021-05-05 09:09:55',NULL,1,'2021-05-10',13),(5,10,1,1,'2021-05-05 09:09:55',NULL,1,'2021-05-10',14),(6,12,1,1,'2021-05-05 09:09:55',NULL,1,'2021-05-10',15),(7,29,1,1,'2021-05-05 09:18:49','Quick production.',1,'2021-05-05',2),(8,18,2,1,'2021-05-05 09:22:32',NULL,1,'2021-05-05',0),(9,25,2,1,'2021-05-05 09:22:32',NULL,1,'2021-05-05',3),(10,20,1,1,'2021-05-05 09:22:32',NULL,1,'2021-05-05',4),(11,30,2,1,'2021-05-07 02:55:15',NULL,1,'2021-05-07',0),(12,13,2,1,'2021-05-07 02:55:16',NULL,1,'2021-05-07',7),(13,10,2,1,'2021-05-07 02:55:16',NULL,1,'2021-05-07',8),(14,12,2,1,'2021-05-07 02:55:16',NULL,1,'2021-05-07',9),(15,30,3,1,'2021-05-07 03:08:24',NULL,1,'2021-05-07',0),(16,30,4,1,'2021-05-07 04:18:44',NULL,1,'2021-05-07',0),(17,30,5,1,'2021-05-07 06:42:41',NULL,1,'2021-05-07',0),(18,13,3,1,'2021-05-07 06:42:41',NULL,1,'2021-05-07',10),(19,10,3,1,'2021-05-07 06:42:41',NULL,1,'2021-05-07',11),(20,30,6,1,'2021-05-07 09:02:35',NULL,1,'2021-05-07',0),(21,30,7,1,'2021-05-07 09:05:38',NULL,1,'2021-05-07',0),(22,13,4,1,'2021-05-07 09:05:38',NULL,1,'2021-05-07',0),(23,10,4,1,'2021-05-07 09:05:38',NULL,1,'2021-05-07',0),(24,12,3,1,'2021-05-07 09:05:38',NULL,1,'2021-05-07',0),(25,26,1,1,'2021-05-07 10:59:34',NULL,1,'2021-05-07',NULL),(26,29,1,1,'2021-05-07 10:59:01','Production.',1,'2021-05-07',5),(27,26,1,1,'2021-05-07 10:59:34','Released.',1,'2021-05-07',6),(28,1,1,1,'2021-05-07 11:01:00',NULL,1,'2021-05-07',12),(29,30,8,1,'2022-01-21 06:13:06',NULL,2,'2022-01-21',0),(30,13,5,1,'2022-01-21 06:13:06',NULL,2,'2022-01-21',0),(31,10,5,1,'2022-01-21 06:13:06',NULL,2,'2022-01-21',0),(32,12,4,1,'2022-01-21 06:13:06',NULL,2,'2022-01-21',0),(33,18,3,1,'2022-01-21 06:14:14',NULL,2,'2022-01-21',0),(34,25,3,1,'2022-01-21 06:14:14',NULL,2,'2022-01-21',0),(35,20,2,1,'2022-01-21 06:14:14',NULL,2,'2022-01-21',0),(36,0,1,1,'2022-01-21 06:15:35',NULL,1,'2021-12-31',16);
 /*!40000 ALTER TABLE `0_audit_trail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -168,7 +168,7 @@ CREATE TABLE `0_bank_trans` (
   KEY `type` (`type`,`trans_no`),
   KEY `bank_act_2` (`bank_act`,`reconciled`),
   KEY `bank_act_3` (`bank_act`,`trans_date`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -177,7 +177,7 @@ CREATE TABLE `0_bank_trans` (
 
 LOCK TABLES `0_bank_trans` WRITE;
 /*!40000 ALTER TABLE `0_bank_trans` DISABLE KEYS */;
-INSERT INTO `0_bank_trans` VALUES (1,12,1,'2','001/2021','2021-05-10',6240,0,0,2,'1',NULL),(2,12,2,'2','002/2021','2021-05-07',300,0,0,2,'1',NULL),(3,12,3,'2','003/2021','2021-05-07',0,0,0,2,'1',NULL),(4,1,1,'1','001/2021','2021-05-07',-5,0,0,0,'Goods received',NULL),(5,12,4,'2','001/2022','2022-01-21',1250,0,0,2,'1',NULL),(6,12,5,'2','002/2022','2022-12-06',900,0,0,2,'1',NULL);
+INSERT INTO `0_bank_trans` VALUES (1,12,1,'2','001/2021','2021-05-10',6240,0,0,2,'1',NULL),(2,12,2,'2','002/2021','2021-05-07',300,0,0,2,'1',NULL),(3,12,3,'2','003/2021','2021-05-07',0,0,0,2,'1',NULL),(4,1,1,'1','001/2021','2021-05-07',-5,0,0,0,'Goods received',NULL),(5,12,4,'2','001/2022','2022-01-21',1250,0,0,2,'1',NULL);
 /*!40000 ALTER TABLE `0_bank_trans` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -349,7 +349,7 @@ CREATE TABLE `0_comments` (
 
 LOCK TABLES `0_comments` WRITE;
 /*!40000 ALTER TABLE `0_comments` DISABLE KEYS */;
-INSERT INTO `0_comments` VALUES (12,1,'2021-05-10','Cash invoice 1'),(12,2,'2021-05-07','Cash invoice 2'),(13,4,'2021-05-07','Recurrent Invoice covers period 04/01/2021 - 04/07/2021.'),(10,4,'2021-05-07','Recurrent Invoice covers period 04/01/2021 - 04/07/2021.'),(12,3,'2021-05-07','Cash invoice 4'),(12,4,'2022-01-21','Default #5'),(0,1,'2021-12-31','Closing Year'),(12,5,'2022-12-06','Default #6');
+INSERT INTO `0_comments` VALUES (12,1,'2021-05-10','Cash invoice 1'),(12,2,'2021-05-07','Cash invoice 2'),(13,4,'2021-05-07','Recurrent Invoice covers period 04/01/2021 - 04/07/2021.'),(10,4,'2021-05-07','Recurrent Invoice covers period 04/01/2021 - 04/07/2021.'),(12,3,'2021-05-07','Cash invoice 4'),(12,4,'2022-01-21','Default #5'),(0,1,'2021-12-31','Closing Year');
 /*!40000 ALTER TABLE `0_comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -499,7 +499,7 @@ CREATE TABLE `0_currencies` (
 
 LOCK TABLES `0_currencies` WRITE;
 /*!40000 ALTER TABLE `0_currencies` DISABLE KEYS */;
-INSERT INTO `0_currencies` VALUES ('CA Dollars','CAD','$','Canada','Cents',1,0),('Euro','EUR','├óΓÇÜ┬¼','Europe','Cents',1,0),('Pounds','GBP','├é┬ú','England','Pence',1,0),('Pakistani Rupee','PKR','Rs','Pakistan','Paisa',0,0),('US Dollars','USD','$','United States','Cents',1,0);
+INSERT INTO `0_currencies` VALUES ('CA Dollars','CAD','$','Canada','Cents',1,0),('Euro','EUR','???','Europe','Cents',1,0),('Pounds','GBP','??','England','Pence',1,0),('US Dollars','USD','$','United States','Cents',1,0);
 /*!40000 ALTER TABLE `0_currencies` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -523,7 +523,7 @@ CREATE TABLE `0_cust_allocations` (
   UNIQUE KEY `trans_type_from` (`person_id`,`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`),
   KEY `From` (`trans_type_from`,`trans_no_from`),
   KEY `To` (`trans_type_to`,`trans_no_to`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -532,7 +532,7 @@ CREATE TABLE `0_cust_allocations` (
 
 LOCK TABLES `0_cust_allocations` WRITE;
 /*!40000 ALTER TABLE `0_cust_allocations` DISABLE KEYS */;
-INSERT INTO `0_cust_allocations` VALUES (1,1,6240,'2021-05-10',1,12,1,10),(2,1,300,'2021-05-07',2,12,2,10),(3,1,0,'2021-05-07',3,12,4,10),(4,1,1250,'2022-01-21',4,12,5,10),(5,1,900,'2022-12-06',5,12,6,10);
+INSERT INTO `0_cust_allocations` VALUES (1,1,6240,'2021-05-10',1,12,1,10),(2,1,300,'2021-05-07',2,12,2,10),(3,1,0,'2021-05-07',3,12,4,10),(4,1,1250,'2022-01-21',4,12,5,10);
 /*!40000 ALTER TABLE `0_cust_allocations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -623,7 +623,7 @@ CREATE TABLE `0_debtor_trans` (
 
 LOCK TABLES `0_debtor_trans` WRITE;
 /*!40000 ALTER TABLE `0_debtor_trans` DISABLE KEYS */;
-INSERT INTO `0_debtor_trans` VALUES (1,10,0,1,1,'2021-05-10','2021-05-05','001/2021',1,1,6240,0,0,0,0,6240,0,1,1,0,0,4,1),(2,10,0,1,1,'2021-05-07','2021-05-07','002/2021',1,2,300,0,0,0,0,300,0,1,1,0,0,4,1),(3,10,0,2,2,'2021-05-07','2021-06-17','003/2021',1,5,267.14,0,0,0,0,0,0,1.123,1,1,0,1,1),(4,10,0,1,1,'2021-05-07','2021-05-07','004/2021',1,7,0,0,0,0,0,0,0,1,1,0,0,4,1),(5,10,0,1,1,'2022-01-21','2022-01-21','001/2022',1,8,1250,0,0,0,0,1250,0,1,1,0,0,4,1),(6,10,0,1,1,'2022-12-06','2022-12-06','002/2022',1,9,900,0,0,0,0,900,0,1,1,0,0,4,1),(1,12,0,1,1,'2021-05-10','0000-00-00','001/2021',0,0,6240,0,0,0,0,6240,0,1,0,0,0,NULL,0),(2,12,0,1,1,'2021-05-07','0000-00-00','002/2021',0,0,300,0,0,0,0,300,0,1,0,0,0,NULL,0),(3,12,0,1,1,'2021-05-07','0000-00-00','003/2021',0,0,0,0,0,0,0,0,0,1,0,0,0,NULL,0),(4,12,0,1,1,'2022-01-21','0000-00-00','001/2022',0,0,1250,0,0,0,0,1250,0,1,0,0,0,NULL,0),(5,12,0,1,1,'2022-12-06','0000-00-00','002/2022',0,0,900,0,0,0,0,900,0,1,0,0,0,NULL,0),(1,13,1,1,1,'2021-05-10','2021-05-05','auto',1,1,6240,0,0,0,0,0,0,1,1,0,0,4,1),(2,13,1,1,1,'2021-05-07','2021-05-07','auto',1,2,300,0,0,0,0,0,0,1,1,0,0,4,1),(3,13,1,2,2,'2021-05-07','2021-06-17','auto',1,5,267.14,0,0,0,0,0,0,1.123,1,1,0,1,1),(4,13,1,1,1,'2021-05-07','2021-05-07','auto',1,7,0,0,0,0,0,0,0,1,1,0,0,4,1),(5,13,1,1,1,'2022-01-21','2022-01-21','auto',1,8,1250,0,0,0,0,0,0,1,1,0,0,4,1),(6,13,1,1,1,'2022-12-06','2022-12-06','auto',1,9,900,0,0,0,0,0,0,1,1,0,0,4,1);
+INSERT INTO `0_debtor_trans` VALUES (1,10,0,1,1,'2021-05-10','2021-05-05','001/2021',1,1,6240,0,0,0,0,6240,0,1,1,0,0,4,1),(2,10,0,1,1,'2021-05-07','2021-05-07','002/2021',1,2,300,0,0,0,0,300,0,1,1,0,0,4,1),(3,10,0,2,2,'2021-05-07','2021-06-17','003/2021',1,5,267.14,0,0,0,0,0,0,1.123,1,1,0,1,1),(4,10,0,1,1,'2021-05-07','2021-05-07','004/2021',1,7,0,0,0,0,0,0,0,1,1,0,0,4,1),(5,10,0,1,1,'2022-01-21','2022-01-21','001/2022',1,8,1250,0,0,0,0,1250,0,1,1,0,0,4,1),(1,12,0,1,1,'2021-05-10','0000-00-00','001/2021',0,0,6240,0,0,0,0,6240,0,1,0,0,0,NULL,0),(2,12,0,1,1,'2021-05-07','0000-00-00','002/2021',0,0,300,0,0,0,0,300,0,1,0,0,0,NULL,0),(3,12,0,1,1,'2021-05-07','0000-00-00','003/2021',0,0,0,0,0,0,0,0,0,1,0,0,0,NULL,0),(4,12,0,1,1,'2022-01-21','0000-00-00','001/2022',0,0,1250,0,0,0,0,1250,0,1,0,0,0,NULL,0),(1,13,1,1,1,'2021-05-10','2021-05-05','auto',1,1,6240,0,0,0,0,0,0,1,1,0,0,4,1),(2,13,1,1,1,'2021-05-07','2021-05-07','auto',1,2,300,0,0,0,0,0,0,1,1,0,0,4,1),(3,13,1,2,2,'2021-05-07','2021-06-17','auto',1,5,267.14,0,0,0,0,0,0,1.123,1,1,0,1,1),(4,13,1,1,1,'2021-05-07','2021-05-07','auto',1,7,0,0,0,0,0,0,0,1,1,0,0,4,1),(5,13,1,1,1,'2022-01-21','2022-01-21','auto',1,8,1250,0,0,0,0,0,0,1,1,0,0,4,1);
 /*!40000 ALTER TABLE `0_debtor_trans` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -650,7 +650,7 @@ CREATE TABLE `0_debtor_trans_details` (
   PRIMARY KEY (`id`),
   KEY `Transaction` (`debtor_trans_type`,`debtor_trans_no`),
   KEY `src_id` (`src_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -659,7 +659,7 @@ CREATE TABLE `0_debtor_trans_details` (
 
 LOCK TABLES `0_debtor_trans_details` WRITE;
 /*!40000 ALTER TABLE `0_debtor_trans_details` DISABLE KEYS */;
-INSERT INTO `0_debtor_trans_details` VALUES (1,1,13,'101','iPad Air 2 16GB',300,14.29,20,0,200,20,1),(2,1,13,'301','Support',80,3.81,3,0,0,3,2),(3,1,10,'101','iPad Air 2 16GB',300,14.2855,20,0,200,0,1),(4,1,10,'301','Support',80,3.81,3,0,0,0,2),(5,2,13,'101','iPad Air 2 16GB',300,14.29,1,0,200,1,3),(6,2,10,'101','iPad Air 2 16GB',300,14.29,1,0,200,0,5),(7,3,13,'102','iPhone 6 64GB',222.62,0,1,0,150,1,7),(8,3,13,'103','iPhone Cover Case',44.52,0,1,0,10,1,8),(9,3,10,'102','iPhone 6 64GB',222.62,0,1,0,150,0,7),(10,3,10,'103','iPhone Cover Case',44.52,0,1,0,10,0,8),(11,4,13,'202','Maintenance',0,0,5,0,0,5,10),(12,4,10,'202','Maintenance',0,0,5,0,0,0,11),(13,5,13,'102','iPhone 6 64GB',250,11.904,5,0,150,5,11),(14,5,10,'102','iPhone 6 64GB',250,11.904,5,0,150,0,13),(15,6,13,'101','iPad Air 2 16GB',300,14.29,1,0,200,1,12),(16,6,13,'101','iPad Air 2 16GB',300,14.29,1,0,200,1,13),(17,6,13,'101','iPad Air 2 16GB',300,14.29,1,0,200,1,14),(18,6,10,'101','iPad Air 2 16GB',300,14.29,1,0,200,0,15),(19,6,10,'101','iPad Air 2 16GB',300,14.29,1,0,200,0,16),(20,6,10,'101','iPad Air 2 16GB',300,14.29,1,0,200,0,17);
+INSERT INTO `0_debtor_trans_details` VALUES (1,1,13,'101','iPad Air 2 16GB',300,14.29,20,0,200,20,1),(2,1,13,'301','Support',80,3.81,3,0,0,3,2),(3,1,10,'101','iPad Air 2 16GB',300,14.2855,20,0,200,0,1),(4,1,10,'301','Support',80,3.81,3,0,0,0,2),(5,2,13,'101','iPad Air 2 16GB',300,14.29,1,0,200,1,3),(6,2,10,'101','iPad Air 2 16GB',300,14.29,1,0,200,0,5),(7,3,13,'102','iPhone 6 64GB',222.62,0,1,0,150,1,7),(8,3,13,'103','iPhone Cover Case',44.52,0,1,0,10,1,8),(9,3,10,'102','iPhone 6 64GB',222.62,0,1,0,150,0,7),(10,3,10,'103','iPhone Cover Case',44.52,0,1,0,10,0,8),(11,4,13,'202','Maintenance',0,0,5,0,0,5,10),(12,4,10,'202','Maintenance',0,0,5,0,0,0,11),(13,5,13,'102','iPhone 6 64GB',250,11.904,5,0,150,5,11),(14,5,10,'102','iPhone 6 64GB',250,11.904,5,0,150,0,13);
 /*!40000 ALTER TABLE `0_debtor_trans_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -817,7 +817,7 @@ CREATE TABLE `0_gl_trans` (
   KEY `dimension2_id` (`dimension2_id`),
   KEY `tran_date` (`tran_date`),
   KEY `account_and_tran_date` (`account`,`tran_date`)
-) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -826,7 +826,7 @@ CREATE TABLE `0_gl_trans` (
 
 LOCK TABLES `0_gl_trans` WRITE;
 /*!40000 ALTER TABLE `0_gl_trans` DISABLE KEYS */;
-INSERT INTO `0_gl_trans` VALUES (1,25,1,'2021-05-05','1510','101',20000,0,0,NULL,NULL),(2,25,1,'2021-05-05','1510','102',15000,0,0,NULL,NULL),(3,25,1,'2021-05-05','1510','103',1000,0,0,NULL,NULL),(4,25,1,'2021-05-05','1550','',-36000,0,0,NULL,NULL),(5,13,1,'2021-05-10','5010','',4000,0,0,NULL,NULL),(6,13,1,'2021-05-10','1510','',-4000,0,0,NULL,NULL),(7,10,1,'2021-05-10','4010','',-5714.29,0,0,NULL,NULL),(8,10,1,'2021-05-10','4010','',-228.57,0,0,NULL,NULL),(9,10,1,'2021-05-10','1200','',6240,0,0,2,'1'),(10,10,1,'2021-05-10','2150','',-297.14,0,0,NULL,NULL),(11,12,1,'2021-05-10','1065','',6240,0,0,NULL,NULL),(12,12,1,'2021-05-10','1200','',-6240,0,0,2,'1'),(13,29,1,'2021-05-05','1510','1 * iPad Air 2 16GB',-400,0,0,NULL,NULL),(14,29,1,'2021-05-05','1510','1 * iPhone 6 64GB',-300,0,0,NULL,NULL),(15,29,1,'2021-05-05','1510','1 * iPhone Cover Case',-20,0,0,NULL,NULL),(16,29,1,'2021-05-05','1530','1 * Support',720,0,0,NULL,NULL),(17,26,1,'2021-05-05','1530','',-720,0,0,NULL,NULL),(18,26,1,'2021-05-05','1510','',720,0,0,NULL,NULL),(19,25,2,'2021-05-05','1510','101',3000,0,0,NULL,NULL),(20,25,2,'2021-05-05','1550','',-3000,0,0,NULL,NULL),(21,20,1,'2021-05-05','2150','',150,0,0,NULL,NULL),(22,20,1,'2021-05-05','2100','',-3150,0,0,3,'1'),(23,20,1,'2021-05-05','1550','',3000,0,0,NULL,NULL),(24,13,2,'2021-05-07','5010','',200,0,0,NULL,NULL),(25,13,2,'2021-05-07','1510','',-200,0,0,NULL,NULL),(26,10,2,'2021-05-07','4010','',-285.71,0,0,NULL,NULL),(27,10,2,'2021-05-07','1200','',300,0,0,2,'1'),(28,10,2,'2021-05-07','2150','',-14.29,0,0,NULL,NULL),(29,12,2,'2021-05-07','1065','',300,0,0,NULL,NULL),(30,12,2,'2021-05-07','1200','',-300,0,0,2,'1'),(31,13,3,'2021-05-07','5010','',150,1,0,NULL,NULL),(32,13,3,'2021-05-07','1510','',-150,0,0,NULL,NULL),(33,13,3,'2021-05-07','5010','',10,1,0,NULL,NULL),(34,13,3,'2021-05-07','1510','',-10,0,0,NULL,NULL),(35,10,3,'2021-05-07','4010','',-250,1,0,NULL,NULL),(36,10,3,'2021-05-07','4010','',-50,1,0,NULL,NULL),(37,10,3,'2021-05-07','1200','',300,0,0,2,'2'),(38,12,3,'2021-05-07','1065','',0,0,0,NULL,NULL),(39,1,1,'2021-05-07','5010','',5,1,0,NULL,NULL),(40,1,1,'2021-05-07','1060','',-5,0,0,NULL,NULL),(41,13,5,'2022-01-21','5010','',750,0,0,NULL,NULL),(42,13,5,'2022-01-21','1510','',-750,0,0,NULL,NULL),(43,10,5,'2022-01-21','4010','',-1190.48,0,0,NULL,NULL),(44,10,5,'2022-01-21','1200','',1250,0,0,2,'1'),(45,10,5,'2022-01-21','2150','',-59.52,0,0,NULL,NULL),(46,12,4,'2022-01-21','1065','',1250,0,0,NULL,NULL),(47,12,4,'2022-01-21','1200','',-1250,0,0,2,'1'),(48,25,3,'2022-01-21','1510','102',900,0,0,NULL,NULL),(49,25,3,'2022-01-21','1550','',-900,0,0,NULL,NULL),(50,20,2,'2022-01-21','2150','',45,0,0,NULL,NULL),(51,20,2,'2022-01-21','2100','',-945,0,0,3,'1'),(52,20,2,'2022-01-21','1550','',900,0,0,NULL,NULL),(53,0,1,'2021-12-31','3590','Closing Year',-2163.57,0,0,NULL,NULL),(54,0,1,'2021-12-31','9990','Closing Year',2163.57,0,0,NULL,NULL),(55,13,6,'2022-12-06','5010','',200,0,0,NULL,NULL),(56,13,6,'2022-12-06','1510','',-200,0,0,NULL,NULL),(57,13,6,'2022-12-06','5010','',200,0,0,NULL,NULL),(58,13,6,'2022-12-06','1510','',-200,0,0,NULL,NULL),(59,13,6,'2022-12-06','5010','',200,0,0,NULL,NULL),(60,13,6,'2022-12-06','1510','',-200,0,0,NULL,NULL),(61,10,6,'2022-12-06','4010','',-285.71,0,0,NULL,NULL),(62,10,6,'2022-12-06','4010','',-285.71,0,0,NULL,NULL),(63,10,6,'2022-12-06','4010','',-285.71,0,0,NULL,NULL),(64,10,6,'2022-12-06','1200','',900,0,0,2,'1'),(65,10,6,'2022-12-06','2150','',-42.86,0,0,NULL,NULL),(66,10,6,'2022-12-06','4450','',-0.01,0,0,NULL,NULL),(67,12,5,'2022-12-06','1065','',900,0,0,NULL,NULL),(68,12,5,'2022-12-06','1200','',-900,0,0,2,'1');
+INSERT INTO `0_gl_trans` VALUES (1,25,1,'2021-05-05','1510','101',20000,0,0,NULL,NULL),(2,25,1,'2021-05-05','1510','102',15000,0,0,NULL,NULL),(3,25,1,'2021-05-05','1510','103',1000,0,0,NULL,NULL),(4,25,1,'2021-05-05','1550','',-36000,0,0,NULL,NULL),(5,13,1,'2021-05-10','5010','',4000,0,0,NULL,NULL),(6,13,1,'2021-05-10','1510','',-4000,0,0,NULL,NULL),(7,10,1,'2021-05-10','4010','',-5714.29,0,0,NULL,NULL),(8,10,1,'2021-05-10','4010','',-228.57,0,0,NULL,NULL),(9,10,1,'2021-05-10','1200','',6240,0,0,2,'1'),(10,10,1,'2021-05-10','2150','',-297.14,0,0,NULL,NULL),(11,12,1,'2021-05-10','1065','',6240,0,0,NULL,NULL),(12,12,1,'2021-05-10','1200','',-6240,0,0,2,'1'),(13,29,1,'2021-05-05','1510','1 * iPad Air 2 16GB',-400,0,0,NULL,NULL),(14,29,1,'2021-05-05','1510','1 * iPhone 6 64GB',-300,0,0,NULL,NULL),(15,29,1,'2021-05-05','1510','1 * iPhone Cover Case',-20,0,0,NULL,NULL),(16,29,1,'2021-05-05','1530','1 * Support',720,0,0,NULL,NULL),(17,26,1,'2021-05-05','1530','',-720,0,0,NULL,NULL),(18,26,1,'2021-05-05','1510','',720,0,0,NULL,NULL),(19,25,2,'2021-05-05','1510','101',3000,0,0,NULL,NULL),(20,25,2,'2021-05-05','1550','',-3000,0,0,NULL,NULL),(21,20,1,'2021-05-05','2150','',150,0,0,NULL,NULL),(22,20,1,'2021-05-05','2100','',-3150,0,0,3,'1'),(23,20,1,'2021-05-05','1550','',3000,0,0,NULL,NULL),(24,13,2,'2021-05-07','5010','',200,0,0,NULL,NULL),(25,13,2,'2021-05-07','1510','',-200,0,0,NULL,NULL),(26,10,2,'2021-05-07','4010','',-285.71,0,0,NULL,NULL),(27,10,2,'2021-05-07','1200','',300,0,0,2,'1'),(28,10,2,'2021-05-07','2150','',-14.29,0,0,NULL,NULL),(29,12,2,'2021-05-07','1065','',300,0,0,NULL,NULL),(30,12,2,'2021-05-07','1200','',-300,0,0,2,'1'),(31,13,3,'2021-05-07','5010','',150,1,0,NULL,NULL),(32,13,3,'2021-05-07','1510','',-150,0,0,NULL,NULL),(33,13,3,'2021-05-07','5010','',10,1,0,NULL,NULL),(34,13,3,'2021-05-07','1510','',-10,0,0,NULL,NULL),(35,10,3,'2021-05-07','4010','',-250,1,0,NULL,NULL),(36,10,3,'2021-05-07','4010','',-50,1,0,NULL,NULL),(37,10,3,'2021-05-07','1200','',300,0,0,2,'2'),(38,12,3,'2021-05-07','1065','',0,0,0,NULL,NULL),(39,1,1,'2021-05-07','5010','',5,1,0,NULL,NULL),(40,1,1,'2021-05-07','1060','',-5,0,0,NULL,NULL),(41,13,5,'2022-01-21','5010','',750,0,0,NULL,NULL),(42,13,5,'2022-01-21','1510','',-750,0,0,NULL,NULL),(43,10,5,'2022-01-21','4010','',-1190.48,0,0,NULL,NULL),(44,10,5,'2022-01-21','1200','',1250,0,0,2,'1'),(45,10,5,'2022-01-21','2150','',-59.52,0,0,NULL,NULL),(46,12,4,'2022-01-21','1065','',1250,0,0,NULL,NULL),(47,12,4,'2022-01-21','1200','',-1250,0,0,2,'1'),(48,25,3,'2022-01-21','1510','102',900,0,0,NULL,NULL),(49,25,3,'2022-01-21','1550','',-900,0,0,NULL,NULL),(50,20,2,'2022-01-21','2150','',45,0,0,NULL,NULL),(51,20,2,'2022-01-21','2100','',-945,0,0,3,'1'),(52,20,2,'2022-01-21','1550','',900,0,0,NULL,NULL),(53,0,1,'2021-12-31','3590','Closing Year',-2163.57,0,0,NULL,NULL),(54,0,1,'2021-12-31','9990','Closing Year',2163.57,0,0,NULL,NULL);
 /*!40000 ALTER TABLE `0_gl_trans` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1474,7 +1474,7 @@ CREATE TABLE `0_refs` (
 
 LOCK TABLES `0_refs` WRITE;
 /*!40000 ALTER TABLE `0_refs` DISABLE KEYS */;
-INSERT INTO `0_refs` VALUES (1,1,'001/2021'),(1,10,'001/2021'),(5,10,'001/2022'),(2,10,'002/2021'),(6,10,'002/2022'),(3,10,'003/2021'),(4,10,'004/2021'),(1,12,'001/2021'),(4,12,'001/2022'),(2,12,'002/2021'),(5,12,'002/2022'),(3,12,'003/2021'),(1,18,'001/2021'),(1,20,'001/2021'),(2,20,'001/2022'),(1,25,'001/2021'),(1,26,'001/2021'),(2,26,'002/2021'),(3,26,'003/2021'),(3,30,'001/2021'),(4,30,'002/2021'),(6,30,'003/2021'),(1,40,'001/2021');
+INSERT INTO `0_refs` VALUES (1,1,'001/2021'),(1,10,'001/2021'),(5,10,'001/2022'),(2,10,'002/2021'),(3,10,'003/2021'),(4,10,'004/2021'),(1,12,'001/2021'),(4,12,'001/2022'),(2,12,'002/2021'),(3,12,'003/2021'),(1,18,'001/2021'),(1,20,'001/2021'),(2,20,'001/2022'),(1,25,'001/2021'),(1,26,'001/2021'),(2,26,'002/2021'),(3,26,'003/2021'),(3,30,'001/2021'),(4,30,'002/2021'),(6,30,'003/2021'),(1,40,'001/2021');
 /*!40000 ALTER TABLE `0_refs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1499,7 +1499,7 @@ CREATE TABLE `0_sales_order_details` (
   PRIMARY KEY (`id`),
   KEY `sorder` (`trans_type`,`order_no`),
   KEY `stkcode` (`stk_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1508,7 +1508,7 @@ CREATE TABLE `0_sales_order_details` (
 
 LOCK TABLES `0_sales_order_details` WRITE;
 /*!40000 ALTER TABLE `0_sales_order_details` DISABLE KEYS */;
-INSERT INTO `0_sales_order_details` VALUES (1,1,30,'101','iPad Air 2 16GB',20,300,20,0,0),(2,1,30,'301','Support',3,80,3,0,0),(3,2,30,'101','iPad Air 2 16GB',1,300,1,0,0),(4,3,30,'102','iPhone 6 64GB',0,250,1,0,0),(5,3,30,'103','iPhone Cover Case',0,50,1,0,0),(6,4,30,'101','iPad Air 2 16GB',0,267.14,1,0,0),(7,5,30,'102','iPhone 6 64GB',1,222.62,1,0,0),(8,5,30,'103','iPhone Cover Case',1,44.52,1,0,0),(9,6,30,'202','Maintenance',0,90,5,0,0),(10,7,30,'202','Maintenance',5,0,5,0,0),(11,8,30,'102','iPhone 6 64GB',5,250,5,0,0),(12,9,30,'101','iPad Air 2 16GB',1,300,1,0,0),(13,9,30,'101','iPad Air 2 16GB',1,300,1,0,0),(14,9,30,'101','iPad Air 2 16GB',1,300,1,0,0);
+INSERT INTO `0_sales_order_details` VALUES (1,1,30,'101','iPad Air 2 16GB',20,300,20,0,0),(2,1,30,'301','Support',3,80,3,0,0),(3,2,30,'101','iPad Air 2 16GB',1,300,1,0,0),(4,3,30,'102','iPhone 6 64GB',0,250,1,0,0),(5,3,30,'103','iPhone Cover Case',0,50,1,0,0),(6,4,30,'101','iPad Air 2 16GB',0,267.14,1,0,0),(7,5,30,'102','iPhone 6 64GB',1,222.62,1,0,0),(8,5,30,'103','iPhone Cover Case',1,44.52,1,0,0),(9,6,30,'202','Maintenance',0,90,5,0,0),(10,7,30,'202','Maintenance',5,0,5,0,0),(11,8,30,'102','iPhone 6 64GB',5,250,5,0,0);
 /*!40000 ALTER TABLE `0_sales_order_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1553,7 +1553,7 @@ CREATE TABLE `0_sales_orders` (
 
 LOCK TABLES `0_sales_orders` WRITE;
 /*!40000 ALTER TABLE `0_sales_orders` DISABLE KEYS */;
-INSERT INTO `0_sales_orders` VALUES (1,30,1,0,1,1,'auto','',NULL,'2021-05-10',1,1,'N/A',NULL,NULL,'Donald Easter LLC',0,'DEF','2021-05-05',4,6240,0,0),(2,30,1,0,1,1,'auto','',NULL,'2021-05-07',1,1,'N/A',NULL,NULL,'Donald Easter LLC',0,'DEF','2021-05-07',4,300,0,0),(3,30,0,0,1,1,'001/2021','',NULL,'2021-05-07',1,1,'N/A',NULL,NULL,'Donald Easter LLC',0,'DEF','2021-05-08',4,300,0,0),(4,30,0,0,2,2,'002/2021','',NULL,'2021-05-07',1,1,'N/A',NULL,NULL,'MoneyMaker Ltd.',0,'DEF','2021-05-08',1,267.14,0,0),(5,30,1,0,2,2,'auto','',NULL,'2021-05-07',1,1,'N/A',NULL,NULL,'MoneyMaker Ltd.',0,'DEF','2021-06-17',1,267.14,0,0),(6,30,0,1,1,1,'003/2021','',NULL,'2021-05-07',1,1,'N/A',NULL,NULL,'Donald Easter LLC',0,'DEF','2021-05-08',4,450,0,0),(7,30,1,0,1,1,'auto','','Recurrent Invoice covers period 04/01/2021 - 04/07/2021.','2021-05-07',1,1,'N/A',NULL,NULL,'Donald Easter LLC',0,'DEF','2021-05-07',4,0,0,0),(8,30,1,0,1,1,'auto','',NULL,'2022-01-21',1,1,'N/A',NULL,NULL,'Donald Easter LLC',0,'DEF','2022-01-21',4,1250,0,0),(9,30,1,0,1,1,'auto','','','2022-12-06',1,1,'N/A','',NULL,'Donald Easter LLC',0,'DEF','2022-12-06',4,900,0,0);
+INSERT INTO `0_sales_orders` VALUES (1,30,1,0,1,1,'auto','',NULL,'2021-05-10',1,1,'N/A',NULL,NULL,'Donald Easter LLC',0,'DEF','2021-05-05',4,6240,0,0),(2,30,1,0,1,1,'auto','',NULL,'2021-05-07',1,1,'N/A',NULL,NULL,'Donald Easter LLC',0,'DEF','2021-05-07',4,300,0,0),(3,30,0,0,1,1,'001/2021','',NULL,'2021-05-07',1,1,'N/A',NULL,NULL,'Donald Easter LLC',0,'DEF','2021-05-08',4,300,0,0),(4,30,0,0,2,2,'002/2021','',NULL,'2021-05-07',1,1,'N/A',NULL,NULL,'MoneyMaker Ltd.',0,'DEF','2021-05-08',1,267.14,0,0),(5,30,1,0,2,2,'auto','',NULL,'2021-05-07',1,1,'N/A',NULL,NULL,'MoneyMaker Ltd.',0,'DEF','2021-06-17',1,267.14,0,0),(6,30,0,1,1,1,'003/2021','',NULL,'2021-05-07',1,1,'N/A',NULL,NULL,'Donald Easter LLC',0,'DEF','2021-05-08',4,450,0,0),(7,30,1,0,1,1,'auto','','Recurrent Invoice covers period 04/01/2021 - 04/07/2021.','2021-05-07',1,1,'N/A',NULL,NULL,'Donald Easter LLC',0,'DEF','2021-05-07',4,0,0,0),(8,30,1,0,1,1,'auto','',NULL,'2022-01-21',1,1,'N/A',NULL,NULL,'Donald Easter LLC',0,'DEF','2022-01-21',4,1250,0,0);
 /*!40000 ALTER TABLE `0_sales_orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1867,7 +1867,7 @@ CREATE TABLE `0_stock_moves` (
   PRIMARY KEY (`trans_id`),
   KEY `type` (`type`,`trans_no`),
   KEY `Move` (`stock_id`,`loc_code`,`tran_date`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1876,7 +1876,7 @@ CREATE TABLE `0_stock_moves` (
 
 LOCK TABLES `0_stock_moves` WRITE;
 /*!40000 ALTER TABLE `0_stock_moves` DISABLE KEYS */;
-INSERT INTO `0_stock_moves` VALUES (1,1,'101',25,'DEF','2021-05-05',200,'',100,200),(2,1,'102',25,'DEF','2021-05-05',150,'',100,150),(3,1,'103',25,'DEF','2021-05-05',10,'',100,10),(4,1,'101',13,'DEF','2021-05-10',300,'auto',-20,200),(5,1,'301',13,'DEF','2021-05-10',80,'auto',-3,0),(6,1,'101',29,'DEF','2021-05-05',200,'001/2021',-2,200),(7,1,'102',29,'DEF','2021-05-05',150,'001/2021',-2,150),(8,1,'103',29,'DEF','2021-05-05',10,'001/2021',-2,10),(9,1,'301',29,'DEF','2021-05-05',0,'001/2021',-2,0),(10,1,'201',26,'DEF','2021-05-05',0,'001/2021',2,360),(11,2,'101',25,'DEF','2021-05-05',200,'',15,200),(12,2,'101',13,'DEF','2021-05-07',300,'auto',-1,200),(13,3,'102',13,'DEF','2021-05-07',222.62,'auto',-1,150),(14,3,'103',13,'DEF','2021-05-07',44.52,'auto',-1,10),(15,4,'202',13,'DEF','2021-05-07',0,'auto',-5,0),(16,5,'102',13,'DEF','2022-01-21',250,'auto',-5,150),(17,3,'102',25,'DEF','2022-01-21',150,'',6,150),(18,6,'101',13,'DEF','2022-12-06',300,'auto',-1,200),(19,6,'101',13,'DEF','2022-12-06',300,'auto',-1,200),(20,6,'101',13,'DEF','2022-12-06',300,'auto',-1,200);
+INSERT INTO `0_stock_moves` VALUES (1,1,'101',25,'DEF','2021-05-05',200,'',100,200),(2,1,'102',25,'DEF','2021-05-05',150,'',100,150),(3,1,'103',25,'DEF','2021-05-05',10,'',100,10),(4,1,'101',13,'DEF','2021-05-10',300,'auto',-20,200),(5,1,'301',13,'DEF','2021-05-10',80,'auto',-3,0),(6,1,'101',29,'DEF','2021-05-05',200,'001/2021',-2,200),(7,1,'102',29,'DEF','2021-05-05',150,'001/2021',-2,150),(8,1,'103',29,'DEF','2021-05-05',10,'001/2021',-2,10),(9,1,'301',29,'DEF','2021-05-05',0,'001/2021',-2,0),(10,1,'201',26,'DEF','2021-05-05',0,'001/2021',2,360),(11,2,'101',25,'DEF','2021-05-05',200,'',15,200),(12,2,'101',13,'DEF','2021-05-07',300,'auto',-1,200),(13,3,'102',13,'DEF','2021-05-07',222.62,'auto',-1,150),(14,3,'103',13,'DEF','2021-05-07',44.52,'auto',-1,10),(15,4,'202',13,'DEF','2021-05-07',0,'auto',-5,0),(16,5,'102',13,'DEF','2022-01-21',250,'auto',-5,150),(17,3,'102',25,'DEF','2022-01-21',150,'',6,150);
 /*!40000 ALTER TABLE `0_stock_moves` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2055,7 +2055,7 @@ CREATE TABLE `0_sys_prefs` (
 
 LOCK TABLES `0_sys_prefs` WRITE;
 /*!40000 ALTER TABLE `0_sys_prefs` DISABLE KEYS */;
-INSERT INTO `0_sys_prefs` VALUES ('accounts_alpha','glsetup.general','tinyint',1,'0'),('accumulate_shipping','glsetup.customer','tinyint',1,'0'),('add_pct','setup.company','int',5,'-1'),('allow_negative_prices','glsetup.inventory','tinyint',1,'1'),('allow_negative_stock','glsetup.inventory','tinyint',1,'0'),('alternative_tax_include_on_docs','setup.company','tinyint',1,'0'),('auto_curr_reval','setup.company','smallint',6,'1'),('bank_charge_act','glsetup.general','varchar',15,'5690'),('barcodes_on_stock','setup.company','tinyint',1,'0'),('base_sales','setup.company','int',11,'1'),('bcc_email','setup.company','varchar',100,''),('company_logo_on_views','setup.company','tinyint',1,'0'),('company_logo_report','setup.company','tinyint',1,'0'),('coy_logo','setup.company','varchar',100,''),('coy_name','setup.company','varchar',60,'Sidekick'),('coy_no','setup.company','varchar',25,''),('creditors_act','glsetup.purchase','varchar',15,'2100'),('curr_default','setup.company','char',3,'USD'),('debtors_act','glsetup.sales','varchar',15,'1200'),('default_adj_act','glsetup.items','varchar',15,'5040'),('default_cogs_act','glsetup.items','varchar',15,'5010'),('default_credit_limit','glsetup.customer','int',11,'1000'),('default_delivery_required','glsetup.sales','smallint',6,'1'),('default_dim_required','glsetup.dims','int',11,'20'),('default_inv_sales_act','glsetup.items','varchar',15,'4010'),('default_inventory_act','glsetup.items','varchar',15,'1510'),('default_loss_on_asset_disposal_act','glsetup.items','varchar',15,'5660'),('default_prompt_payment_act','glsetup.sales','varchar',15,'4500'),('default_quote_valid_days','glsetup.sales','smallint',6,'30'),('default_receival_required','glsetup.purchase','smallint',6,'10'),('default_sales_act','glsetup.sales','varchar',15,'4010'),('default_sales_discount_act','glsetup.sales','varchar',15,'4510'),('default_wip_act','glsetup.items','varchar',15,'1530'),('default_workorder_required','glsetup.manuf','int',11,'20'),('deferred_income_act','glsetup.sales','varchar',15,'2105'),('depreciation_period','glsetup.company','tinyint',1,'1'),('dim_on_recurrent_invoice','setup.company','tinyint',1,'0'),('domicile','setup.company','varchar',55,''),('email','setup.company','varchar',100,''),('exchange_diff_act','glsetup.general','varchar',15,'4450'),('f_year','setup.company','int',11,'2'),('fax','setup.company','varchar',30,''),('freight_act','glsetup.customer','varchar',15,'4430'),('gl_closing_date','setup.closing_date','date',8,''),('grn_clearing_act','glsetup.purchase','varchar',15,'1550'),('gst_no','setup.company','varchar',25,''),('legal_text','glsetup.customer','tinytext',0,''),('loc_notification','glsetup.inventory','tinyint',1,'0'),('login_tout','setup.company','smallint',6,'600'),('long_description_invoice','setup.company','tinyint',1,'0'),('max_days_in_docs','setup.company','smallint',5,'180'),('no_customer_list','setup.company','tinyint',1,'0'),('no_item_list','setup.company','tinyint',1,'0'),('no_supplier_list','setup.company','tinyint',1,'0'),('no_zero_lines_amount','glsetup.sales','tinyint',1,'1'),('past_due_days','glsetup.general','int',11,'30'),('phone','setup.company','varchar',30,''),('po_over_charge','glsetup.purchase','int',11,'10'),('po_over_receive','glsetup.purchase','int',11,'10'),('postal_address','setup.company','tinytext',0,'N/A'),('print_dialog_direct','setup.company','tinyint',1,'0'),('print_invoice_no','glsetup.sales','tinyint',1,'0'),('print_item_images_on_quote','glsetup.inventory','tinyint',1,'0'),('profit_loss_year_act','glsetup.general','varchar',15,'9990'),('pyt_discount_act','glsetup.purchase','varchar',15,'5060'),('ref_no_auto_increase','setup.company','tinyint',1,'0'),('retained_earnings_act','glsetup.general','varchar',15,'3590'),('round_to','setup.company','int',5,'1'),('shortname_name_in_list','setup.company','tinyint',1,'0'),('show_po_item_codes','glsetup.purchase','tinyint',1,'0'),('suppress_tax_rates','setup.company','tinyint',1,'0'),('tax_algorithm','glsetup.customer','tinyint',1,'1'),('tax_last','setup.company','int',11,'1'),('tax_prd','setup.company','int',11,'1'),('time_zone','setup.company','tinyint',1,'0'),('use_dimension','setup.company','tinyint',1,'1'),('use_fixed_assets','setup.company','tinyint',1,'1'),('use_manufacturing','setup.company','tinyint',1,'1'),('version_id','system','varchar',11,'2.4.1');
+INSERT INTO `0_sys_prefs` VALUES ('accounts_alpha','glsetup.general','tinyint',1,'0'),('accumulate_shipping','glsetup.customer','tinyint',1,'0'),('add_pct','setup.company','int',5,'-1'),('allow_negative_prices','glsetup.inventory','tinyint',1,'1'),('allow_negative_stock','glsetup.inventory','tinyint',1,'0'),('alternative_tax_include_on_docs','setup.company','tinyint',1,'0'),('auto_curr_reval','setup.company','smallint',6,'1'),('bank_charge_act','glsetup.general','varchar',15,'5690'),('barcodes_on_stock','setup.company','tinyint',1,'0'),('base_sales','setup.company','int',11,'1'),('bcc_email','setup.company','varchar',100,''),('company_logo_on_views','setup.company','tinyint',1,'0'),('company_logo_report','setup.company','tinyint',1,'0'),('coy_logo','setup.company','varchar',100,''),('coy_name','setup.company','varchar',60,'Company name'),('coy_no','setup.company','varchar',25,''),('creditors_act','glsetup.purchase','varchar',15,'2100'),('curr_default','setup.company','char',3,'USD'),('debtors_act','glsetup.sales','varchar',15,'1200'),('default_adj_act','glsetup.items','varchar',15,'5040'),('default_cogs_act','glsetup.items','varchar',15,'5010'),('default_credit_limit','glsetup.customer','int',11,'1000'),('default_delivery_required','glsetup.sales','smallint',6,'1'),('default_dim_required','glsetup.dims','int',11,'20'),('default_inv_sales_act','glsetup.items','varchar',15,'4010'),('default_inventory_act','glsetup.items','varchar',15,'1510'),('default_loss_on_asset_disposal_act','glsetup.items','varchar',15,'5660'),('default_prompt_payment_act','glsetup.sales','varchar',15,'4500'),('default_quote_valid_days','glsetup.sales','smallint',6,'30'),('default_receival_required','glsetup.purchase','smallint',6,'10'),('default_sales_act','glsetup.sales','varchar',15,'4010'),('default_sales_discount_act','glsetup.sales','varchar',15,'4510'),('default_wip_act','glsetup.items','varchar',15,'1530'),('default_workorder_required','glsetup.manuf','int',11,'20'),('deferred_income_act','glsetup.sales','varchar',15,'2105'),('depreciation_period','glsetup.company','tinyint',1,'1'),('dim_on_recurrent_invoice','setup.company','tinyint',1,'0'),('domicile','setup.company','varchar',55,''),('email','setup.company','varchar',100,''),('exchange_diff_act','glsetup.general','varchar',15,'4450'),('f_year','setup.company','int',11,'2'),('fax','setup.company','varchar',30,''),('freight_act','glsetup.customer','varchar',15,'4430'),('gl_closing_date','setup.closing_date','date',8,''),('grn_clearing_act','glsetup.purchase','varchar',15,'1550'),('gst_no','setup.company','varchar',25,''),('legal_text','glsetup.customer','tinytext',0,''),('loc_notification','glsetup.inventory','tinyint',1,'0'),('login_tout','setup.company','smallint',6,'600'),('long_description_invoice','setup.company','tinyint',1,'0'),('max_days_in_docs','setup.company','smallint',5,'180'),('no_customer_list','setup.company','tinyint',1,'0'),('no_item_list','setup.company','tinyint',1,'0'),('no_supplier_list','setup.company','tinyint',1,'0'),('no_zero_lines_amount','glsetup.sales','tinyint',1,'1'),('past_due_days','glsetup.general','int',11,'30'),('phone','setup.company','varchar',30,''),('po_over_charge','glsetup.purchase','int',11,'10'),('po_over_receive','glsetup.purchase','int',11,'10'),('postal_address','setup.company','tinytext',0,'N/A'),('print_dialog_direct','setup.company','tinyint',1,'0'),('print_invoice_no','glsetup.sales','tinyint',1,'0'),('print_item_images_on_quote','glsetup.inventory','tinyint',1,'0'),('profit_loss_year_act','glsetup.general','varchar',15,'9990'),('pyt_discount_act','glsetup.purchase','varchar',15,'5060'),('ref_no_auto_increase','setup.company','tinyint',1,'0'),('retained_earnings_act','glsetup.general','varchar',15,'3590'),('round_to','setup.company','int',5,'1'),('shortname_name_in_list','setup.company','tinyint',1,'0'),('show_po_item_codes','glsetup.purchase','tinyint',1,'0'),('suppress_tax_rates','setup.company','tinyint',1,'0'),('tax_algorithm','glsetup.customer','tinyint',1,'1'),('tax_last','setup.company','int',11,'1'),('tax_prd','setup.company','int',11,'1'),('time_zone','setup.company','tinyint',1,'0'),('use_dimension','setup.company','tinyint',1,'1'),('use_fixed_assets','setup.company','tinyint',1,'1'),('use_manufacturing','setup.company','tinyint',1,'1'),('version_id','system','varchar',11,'2.4.1');
 /*!40000 ALTER TABLE `0_sys_prefs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2211,7 +2211,7 @@ CREATE TABLE `0_trans_tax_details` (
   PRIMARY KEY (`id`),
   KEY `Type_and_Number` (`trans_type`,`trans_no`),
   KEY `tran_date` (`tran_date`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2220,7 +2220,7 @@ CREATE TABLE `0_trans_tax_details` (
 
 LOCK TABLES `0_trans_tax_details` WRITE;
 /*!40000 ALTER TABLE `0_trans_tax_details` DISABLE KEYS */;
-INSERT INTO `0_trans_tax_details` VALUES (1,13,1,'2021-05-10',1,5,1,1,5942.86,297.14,'auto',NULL),(2,10,1,'2021-05-10',1,5,1,1,5942.86,297.14,'001/2021',0),(3,20,1,'2021-05-05',1,5,1,0,3000,150,'rr4',1),(4,13,2,'2021-05-07',1,5,1,1,285.71,14.29,'auto',NULL),(5,10,2,'2021-05-07',1,5,1,1,285.71,14.29,'002/2021',0),(6,13,3,'2021-05-07',0,0,1.123,1,267.14,0,'auto',NULL),(7,10,3,'2021-05-07',0,0,1.123,1,267.14,0,'003/2021',0),(8,13,5,'2022-01-21',1,5,1,1,1190.48,59.52,'auto',NULL),(9,10,5,'2022-01-21',1,5,1,1,1190.48,59.52,'001/2022',0),(10,20,2,'2022-01-21',1,5,1,0,900,45,'asd5',1),(11,13,6,'2022-12-06',1,5,1,1,857.13,42.86,'auto',NULL),(12,10,6,'2022-12-06',1,5,1,1,857.13,42.86,'002/2022',0);
+INSERT INTO `0_trans_tax_details` VALUES (1,13,1,'2021-05-10',1,5,1,1,5942.86,297.14,'auto',NULL),(2,10,1,'2021-05-10',1,5,1,1,5942.86,297.14,'001/2021',0),(3,20,1,'2021-05-05',1,5,1,0,3000,150,'rr4',1),(4,13,2,'2021-05-07',1,5,1,1,285.71,14.29,'auto',NULL),(5,10,2,'2021-05-07',1,5,1,1,285.71,14.29,'002/2021',0),(6,13,3,'2021-05-07',0,0,1.123,1,267.14,0,'auto',NULL),(7,10,3,'2021-05-07',0,0,1.123,1,267.14,0,'003/2021',0),(8,13,5,'2022-01-21',1,5,1,1,1190.48,59.52,'auto',NULL),(9,10,5,'2022-01-21',1,5,1,1,1190.48,59.52,'001/2022',0),(10,20,2,'2022-01-21',1,5,1,0,900,45,'asd5',1);
 /*!40000 ALTER TABLE `0_trans_tax_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2305,7 +2305,7 @@ CREATE TABLE `0_users` (
 
 LOCK TABLES `0_users` WRITE;
 /*!40000 ALTER TABLE `0_users` DISABLE KEYS */;
-INSERT INTO `0_users` VALUES (1,'admin','ec5fe09d89d384c48b09646ab477f5da','Administrator',2,'','adm@example.com','C',0,0,0,0,'default','Letter',2,2,4,1,1,0,0,'2026-07-11 11:09:21',10,1,1,'1',1,0,'orders',30,0,1,0,0,0);
+INSERT INTO `0_users` VALUES (1,'admin','5f4dcc3b5aa765d61d8327deb882cf99','Administrator',2,'','adm@example.com','C',0,0,0,0,'default','Letter',2,2,4,1,1,0,0,'2021-05-07 13:58:33',10,1,1,'1',1,0,'orders',30,0,1,0,0,0);
 /*!40000 ALTER TABLE `0_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -12634,4 +12634,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-07-11 14:42:38
+-- Dump completed on 2026-07-13 14:22:16
