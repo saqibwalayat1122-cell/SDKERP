@@ -9,6 +9,9 @@ echo "=== FrontAccounting DB Debug ===\n";
 echo "Configured DB Connections:\n";
 print_r($db_connections);
 
+// Disable mysqli exception throwing for compat
+mysqli_report(MYSQLI_REPORT_OFF);
+
 // Try to connect to connection 0
 $conn = $db_connections[0];
 echo "\nConnecting to connection 0 (Name: {$conn['name']})...\n";
@@ -30,6 +33,16 @@ if (!$link) {
     $res = mysqli_query($link, "SHOW DATABASES");
     while ($row = mysqli_fetch_row($res)) {
         echo "- {$row[0]}\n";
+    }
+
+    echo "\nQuerying debtors as sdkerp from '{$conn['dbname']}.{$conn['tbpref']}debtors_master':\n";
+    $res = mysqli_query($link, "SELECT debtor_no, name FROM 0_debtors_master");
+    if (!$res) {
+        echo "Query failed: " . mysqli_error($link) . "\n";
+    } else {
+        while ($row = mysqli_fetch_assoc($res)) {
+            echo "- ID: {$row['debtor_no']}, Name: {$row['name']}\n";
+        }
     }
 }
 
