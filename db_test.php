@@ -29,6 +29,10 @@ if (!$link) {
     $row = mysqli_fetch_row($res);
     echo $row[0] . "\n";
 
+    $res = mysqli_query($link, "SELECT @@hostname, @@port, @@version");
+    $row = mysqli_fetch_row($res);
+    echo "MySQL Server Info: Hostname={$row[0]}, Port={$row[1]}, Version={$row[2]}\n";
+
     echo "\nAvailable databases for this user:\n";
     $res = mysqli_query($link, "SHOW DATABASES");
     while ($row = mysqli_fetch_row($res)) {
