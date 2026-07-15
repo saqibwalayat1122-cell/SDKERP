@@ -1,0 +1,12 @@
+{
+    "name": "frontaccounting/frontaccounting",
+    "description": "FrontAccounting ERP",
+    "require": {
+        "php": ">=8.2",
+        "ext-mysqli": "*",
+        "ext-gd": "*",
+        "ext-openssl": "*",
+        "ext-curl": "*",
+        "ext-gettext": "*"
+    }
+}
