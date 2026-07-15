@@ -2,7 +2,7 @@
 | default       |               | default.css       |
 |---------------------------------------------------|
 | For use with:                                     |
-| FrontAccounting 								|
+| FrontAccounting 									|
 | http://FrontAccounting.com/  	            		|
 | by Joe Hunt Consulting                            |
 |---------------------------------------------------|
@@ -19,7 +19,7 @@
 
 body {
 	font-family: Verdana, Arial, Helvetica;
-	background: #1d4354;
+	background: #285b86;
 	font-size: 10px;
 	margin: 5px 0 0 5px;
 	padding: 0;
@@ -49,7 +49,7 @@ select {
 
 option.inactive {
 	text-decoration: line-through;
-	color: #7bb06b;
+	color: gray;
 }
 
 input.big {
@@ -61,33 +61,33 @@ input.small {
 }
 
 a {
-	color: #1b6656;
+	color: #0000bb;
 	font-size: 11px;
 	text-decoration: none;
 }
 
 a:link {
-	color: #1b6656;
+	color: #0000bb;
 	text-decoration: none;
 }
 
 a:active {
-	color: #1d4354;
+	color: #000000;
 	text-decoration: none;
 }
 
 a:hover, a:focus {
-	color: #7bb06b;
+	color: #2d8628;
 	text-decoration: underline;
 }
 
 .inactive {
-	color: #7bb06b;
+	color: gray;
 }
 
 button {
 	font-size: 11px;
-	border: 1px #1b6656 solid;
+	border: 1px #0066cc solid;
 	padding: 1px 0px;
 }
 
@@ -105,7 +105,7 @@ button img, span {
 }
 
 .main_page {
-	background-color: #f0f5f3;
+	background-color: #f9f9f9;
 	border: none;
 	width: 100%;
 	margin: 0;
@@ -113,7 +113,7 @@ button img, span {
 }
 
 .quick_menu {
-	background-color: #1b6656;
+	background-color: #285b86;
 	border: 0;
 	margin: 0;
 	padding: 0;
@@ -127,23 +127,23 @@ button img, span {
 	white-space: nowrap;
 	margin: 2px;
 	padding: 2px;
-	color: #7bb06b;
+	color: #00cc00;
 	font-weight: bolder;
 }
 
 .logoutBar {
 	padding-right: 1em;
-	background: #e3edea;
-	color: #1d4354;
-	border-bottom: 1px solid #7bb06b;
+	background: #dee7ec;
+	color: black;
+	border-bottom: 1px solid #8cacbb;
 	width: 100%;
 }
 
 .bottomBar {
 	padding-right: 1em;
-	background: #e3edea;
-	color: #1d4354;
-	border-bottom: 1px solid #7bb06b;
+	background: #dee7ec;
+	color: black;
+	border-bottom: 1px solid #8cacbb;
 	width: 100%;
 }
 
@@ -154,10 +154,10 @@ button img, span {
 
 .bottomBar2 {
 	padding-right: 1em;
-	background: #e3edea;
-	color: #1d4354;
-	border-top: 1px solid #7bb06b;
-	border-bottom: 1px solid #7bb06b;
+	background: #dee7ec;
+	color: black;
+	border-top: 1px solid #8cacbb;
+	border-bottom: 1px solid #8cacbb;
 	width: 100%;
 }
 
@@ -167,15 +167,15 @@ button img, span {
 
 div.logoutBar {
 	padding-right: 1em;
-	background: #e3edea;
-	color: #1d4354;
-	border-bottom: 1px solid #7bb06b;
+	background: #dee7ec;
+	color: black;
+	border-bottom: 1px solid #8cacbb;
 	text-align: right;
 }
 div.logoutBar a {
 	font-weight: normal;
 	margin-left: 1em;
-	color: #1d4354;
+	color: #436976;
 	background-color: transparent;
 }
 div.logoutBar img {
@@ -187,46 +187,46 @@ div.tabs {
 	background: none transparent scroll repeat 0% 0%;
 	white-space: nowrap;
 	border-collapse: collapse;
-	border-bottom: 1px solid #7bb06b;
+	border-bottom: 1px solid #8cacbb;
 
 }
 div.tabs a {
-	border: 1px solid #7bb06b;
+	border: 1px solid #8cacbb;
 	padding: 3px 10px;
 	font-weight: normal;
-	background: #f0f5f3 scroll repeat 0% 0%;
-	color: #1d4354;
+	background: white scroll repeat 0% 0%;
+	color: #436976;
 	margin-right: 0;
 	height: 10px;
 }
 div.tabs a.selected {
-	border-top: 1px solid #7bb06b;
-	border-right: 1px solid #7bb06b;
-	border-bottom:  1px solid #e3edea;
-	border-left: 1px solid #7bb06b;
+	border-top: 1px solid #8cacbb;
+	border-right: 1px solid #8cacbb;
+	border-bottom:  1px solid #dee7ec;
+	border-left: 1px solid #8cacbb;
 	font-weight: normal;
-	background: #e3edea;
-	color: #1d4354;
+	background: #dee7ec;
+	color: #436976;
 }
 div.tabs a:hover {
-	background: #e3edea;
-	color: #1b6656;
+	background: #dee7ec;
+	color: #436976;
 }
 
 .menu_group {
 	font-size: 13px;
 	padding: 0px;
-	color: #1d4354;
-	background-color: #e3edea;
+	color: #000000;
+	background-color: #dee7ec;
 	padding-left: 3px;
 	font-weight: bold;
 }
 
 .menu_group_items {
-	background-color: #f0f5f3;
+	background-color: #f9f9f9;
 	font-weight: normal;
 	padding: 9px;
-	border: 1px solid #7bb06b;
+	border: 1px solid #8cacbb;
 }
 
 #hotkeyshelp {
@@ -239,14 +239,14 @@ div.tabs a:hover {
 	bottom: -3px;
 }
 
-#footer a, .footer a {
-	color: #ffffff !important;
+.footer td a {
+	color: #666666;
 	font-size: 9px;
 }
 
 .footer {
 	font-family: Verdana, Arial, Helvetica;
-	color: #ffffff;
+	color: #cccccc;
 	font-weight: normal;
 	font-size: 9px;
 	text-align: center;
@@ -255,81 +255,67 @@ div.tabs a:hover {
 
 .tableheader {
 	font-weight: bold;
-	background-color: #1b6656;
-	color: #f0f5f3;
+	background-color: #dee7ec;
+	color: black;
 	text-align: center;
-}
-
-.tableheader a, .tableheader2 a {
-	color: #ffffff !important;
-	text-decoration: none;
-}
-
-.tableheader a:hover, .tableheader2 a:hover {
-	color: #7bb06b !important;
-	text-decoration: underline;
 }
 
 .tableheader2 {
 	font-weight: bold;
-	background-color: #1b6656;
-	color: #f0f5f3;
+	background-color: #dee7ec;
+	color: black;
 	text-align: left;
 }
 
 .titletext {
 	font-weight: bold;
 	font-size: 13px;
-	border-bottom: 1px solid #7bb06b;
+	border-bottom: 1px solid #8cacbb;
 	padding: 5px;
 	width: 100%;
-}
-
-#loginscreen .titletext {
-	color: #ffffff;
 }
 
 .headingtext {
 	font-weight: bold;
 	font-size: 13px;
-	color: #1d4354;
+	color: black;
 }
 
 .headingtext2 {
 	font-size: 13px;
-	color: #1d4354;
+	color: black;
 }
 
 .headingtext3 {
 	font-weight: bold;
 	font-size: 10px;
-	color: #1d4354;
+	color: black;
 }
 
 .errortext {
 	font-size: 13px;
-	color: #dd2200;
+	color: #ff0000;
 	font-weight: bold;
 }
 
 .inputsubmit {
 	font-size: 11px;
-	border: 1px #1b6656 solid;
+	border: 1px #0066cc solid;
 	padding: 1px 4px;
 }
 
 .ajaxsubmit {
 	font-size: 11px;
-	border: 1px #1b6656 solid;
+	border: 1px #0066cc solid;
 	padding: 1px 4px;
 }
 
 .oddrow {
-	background-color: #e3edea;
+	background-color: #eeeeee;
 }
 
 .evenrow {
-	background-color: #d0e0dc;
+	background-color: #dddddd;
 }
 
 .overduebg {
@@ -341,85 +327,85 @@ div.tabs a:hover {
 }
 
 .currentfg {
-	color: #7bb06b;
+	color: #ff6666;
 }
 
 .redfg, a.redfg {
-	color: #dd2200;
+	color: red;
 	font-weight: bold;
 }
 
 .settledbg {
-	background-color: #7bb06b;
+	background-color: #00bb00;
 }
 
 .settledfg {
-	color: #1b6656;
+	color: #00bb00;
 }
 
 .inquirybg {
-	background-color: #e3edea;
+	background-color: #fdfeef;
 }
 
 .currencybg {
-	background-color: #1d4354;
+	background-color: #ee8888;
 }
 
 .stockmankobg {
-	background-color: #e3edea;
+	background-color: pink;
 }
 
 .stockmankofg {
-	color: #1b6656;
+	color: red;
 }
 
 table.tablestyle {
 	border-collapse: collapse;
-	border: 1px solid #7bb06b;
+	border: 1px solid #8cacbb;
 }
 table.tablestyle td {
 	border-collapse: collapse;
-	border: 1px solid #7bb06b;
+	border: 1px solid #8cacbb;
 }
 table.tablestyle2 {
 	border-collapse: collapse;
-	border: 1px solid #7bb06b;
+	border: 1px solid #cccccc;
 }
 table.tablestyle2 td {
 	border-collapse: collapse;
-	border: 1px solid #7bb06b;
+	border: 1px solid #cccccc;
 }
 table.tablestyle_inner {
 	border-collapse: collapse;
-	border: 1px solid #e3edea;
+	border: 1px solid #f9f9f9;
 }
 table.tablestyle_inner td {
 	border-collapse: collapse;
-	border: 1px solid #e3edea;
+	border: 1px solid #f9f9f9;
 }
 .tablestyle_noborder {
 	padding: 3px;
 }
 
 .label {
-	background-color: #e3edea;
-	color: #1d4354;
+	background-color: #efefef;
+	color: black;
 }
 
 #loginscreen {
-	background: #1d4354;
+	background: #f5f5f5;
 }
 
 .login {
 	width: 350px;
-	border:1px solid #7bb06b;
-	border-left: 12px solid #1b6656;
-	background-color: #f0f5f3;
+	border:1px solid #ccc;
+	border-left: 12px solid #367cb5;
+	background-color: #eeeeee;
 }
 
 .login td.tableheader {
 	line-height: 40px;
-	border:1px solid #7bb06b;
+	border:1px solid #ccc;
 }
 
 .login select, .login input[type=text], input[type=password] {
@@ -427,17 +413,17 @@ table.tablestyle_inner td {
 	width: 225px;
 	padding-left: 3px;
 	box-sizing: border-box;
-	border: 1px solid #7bb06b;
+	border: 1px solid #bbb;
 	border-radius: 4px;
-	background-color: #f0f5f3;
+	background-color: #fff;
 	outline: none;
 }
 
 .login input[type=button], input[type=submit] {
-  background-color: #1b6656;
+  background-color: #367cb5;
   border: none;
   border-radius: 4px;
-  color: #f0f5f3;
+  color: white;
   padding: 8px 16px;
   text-decoration: none;
   margin: 4px 2px;
@@ -455,7 +441,7 @@ input.amount {
 }
 
 .editbutton {
-   color:#1b6656;
+   color:#0000FF;
    background-color:transparent;
    border-style:none;
    text-decoration:underline;
@@ -463,7 +449,7 @@ input.amount {
 }
 
 .navibutton[disabled], .navibutton[disabled] span {
-  color:#7bb06b;
+  color:#808080;
   text-decoration: none;
   cursor: auto;
 }
@@ -472,23 +458,11 @@ button.navibutton {
 	font-family: Verdana, Arial, Helvetica;
 	font-size: 11px;
 	font-weight: bold;
-   color:#1d4354;
+   color:#000;
    padding: 0 3px;
    background-color:transparent;
    border-style:none;
    cursor: pointer;
-}
-
-.tableheader button.navibutton, .tableheader2 button.navibutton,
-.tableheader button.navibutton span, .tableheader2 button.navibutton span,
-th button.navibutton, th button.navibutton span {
-	color: #ffffff !important;
-}
-
-.tableheader button.navibutton:hover, .tableheader2 button.navibutton:hover,
-.tableheader button.navibutton span:hover, .tableheader2 button.navibutton span:hover,
-th button.navibutton:hover, th button.navibutton span:hover {
-	color: #7bb06b !important;
 }
 
 .navibutton span {
@@ -497,9 +471,9 @@ th button.navibutton:hover, th button.navibutton span:hover {
 
 .navibar {
     padding: 0 3px;
-	color: #1d4354;
+	color: #000;
     border-collapse: collapse;
-    background-color: #e3edea;
+    background-color: #dee7ec;
 }
 
 .navibar tr td {
@@ -524,46 +498,48 @@ ul.ajaxtabs li{
 }
 
 ul.ajaxtabs li button{
-    background-color: #e3edea;
+    background-color: #dee7ec;
+/*	background-repeat: repeat-x;
+	background-position: top; */
 	padding: 3px 8px;
 	margin: 0px;
-	border-top: 1px solid #7bb06b;
-	border-right: 1px solid #7bb06b;
+	border-top: 1px solid #8cacbb;
+	border-right: 1px solid #8cacbb;
 	border-bottom: none;
 	border-left: none;
 	font-weight: bold;
 }
 
 ul.ajaxtabs li button:hover{
-	border-top: 1px solid #7bb06b;
-	color:#f0f5f3;
+	border-top: 1px solid #8cacbb;
+	color:#FFFFFF;
 }
 div.spaceBox{
-	background-color: #7bb06b;
+	background-color: #8cacbb;
 	height:8px;
-	border-bottom: 1px solid #7bb06b;
-	border-left: 1px solid #7bb06b;
-	border-right:1px solid #7bb06b;
+	border-bottom: 1px solid #8cacbb;
+	border-left: 1px solid #8cacbb;
+	border-right:1px solid #8cacbb;
 	margin: 0 3px 0px 3px
 }
 
 div.contentBox{
-	border: 1px solid #7bb06b;
+	border: 1px solid #8cacbb;
 	margin: 0 3px 3px 3px
 }
 
 ul.ajaxtabs li button.current, ul.ajaxtabs li button.current:hover{
-	border-left: 1px solid #7bb06b;
-	background-color: #7bb06b;
-	color:#f0f5f3;
+	border-left: 1px solid #8cacbb;
+	background-color: #8cacbb;
+	color:#FFFFFF;
 }
 #hints {
 	font-size: 13px;
 	padding: 5px;
-	border-bottom: 1px solid #7bb06b;
+	border-bottom: 1px solid #8cacbb;
 	margin: -4px -2px -2px;
-	border: 1px solid #7bb06b;
-	background-color: #e3edea;
+	border: 1px solid #8cacbb;
+	background-color: #FFFFE0;
 	white-space: nowrap;
 }
 /*
@@ -580,7 +556,7 @@ ul.ajaxtabs li button.current, ul.ajaxtabs li button.current:hover{
 }
 #CC { 
 	position:absolute;
-	background-color:#f0f5f3;
+	background-color:#FFF;
 	margin:0; padding:0;
 	display:none;
 	z-index: 100;
@@ -588,8 +564,8 @@ ul.ajaxtabs li button.current, ul.ajaxtabs li button.current:hover{
 #CC table { 
 	font-family: arial, verdana, helvetica, sans-serif;
 	font-size: 8pt;
-	border-left: 1px solid #1b6656;
-	border-right: 1px solid #1b6656;
+	border-left: 1px solid #336;
+	border-right: 1px solid #336;
 }
 #CC th {
 	font-weight: normal;
@@ -598,42 +574,42 @@ ul.ajaxtabs li button.current, ul.ajaxtabs li button.current:hover{
 #CC th a {
 	font-weight: normal;
 	text-decoration: none;
-	color: #f0f5f3;
+	color: #FFF;
 	padding: 1px;
 }
 #CC td {
 	text-align: center;
 }
 #CC .header {
-	background-color: #1b6656;
+	background-color: #285b86;
 }
 #CC .weekday {
-	background-color: #e3edea;
-	color: #1d4354;
+	background-color: #eee;
+	color: #000;
 }
 #CC .weekend {
-	background-color: #d0e0dc;
-	color: #1d4354;
+	background-color: #FFC;
+	color: #000;
 }
 #CC .weekno {
-	background-color: #e3edea;
-	color: #1b6656;
+	background-color: #c0daf8;
+	color: #555;
 }
 #CC .current {
-	border: 1px solid #1b6656;
-	background-color: #1b6656;
-	color: #f0f5f3;
+	border: 1px solid #339;
+	background-color: #285b86;
+	color: #FFF;
 }
 #CC .weekday, #CC .weekend, #CC .current {
 	display: block;
 	text-decoration: none;
-	border: 1px solid #f0f5f3;
+	border: 1px solid #FFF;
 	width: 2em;
 }
 #CC .weekday:hover, #CC .weekend:hover, #CC .current:hover {
-	color: #f0f5f3;
-	background-color: #1b6656;
-	border: 1px solid #7bb06b;
+	color: #FFF;
+	background-color: #285b86;
+	border: 1px solid #999;
 }
 #CC .previous {
 	text-align: left;
@@ -646,25 +622,25 @@ ul.ajaxtabs li button.current, ul.ajaxtabs li button.current:hover{
 	font-size: 1.4em;
 }
 #CC .previous a, #CC .next a {
-	color: #f0f5f3;
+	color: #FFF;
 	text-decoration: none;
 	font-weight: bold;
 }
 #CC .title {
 	text-align: center;
 	font-weight: bold; 
-	color: #f0f5f3;
+	color: #FFF;
 }
 #CC .empty {
-	background-color: #e3edea;
-	border: 1px solid #f0f5f3;
+	background-color: #ddd;
+	border: 1px solid #FFF;
 }
 
 div.err_msg {
 	margin: 10px;
 	padding: 3px;
-	border: 1px solid #1d4354;
-	background-color: #e3edea;
+	border: 1px solid #cc3300;
+	background-color: #ffcccc;
 	color: #dd2200;
 	text-align: center;
 }
@@ -672,18 +648,18 @@ div.err_msg {
 div.warn_msg {
 	margin: 10px;
 	padding: 3px;
-	border: 1px solid #7bb06b;
-	background-color: #e3edea;
-	color: #1d4354;
+	border: 1px solid #ff9900;
+	background-color: #ffff00;
+	color: #ff5500;
 	text-align: center;
 }
 
 div.note_msg {
 	margin: 10px; 
 	padding: 3px;
-	border: 1px solid #7bb06b;
-	background-color: #e3edea;
-	color: #1b6656;
+	border: 1px solid #33cc00;
+	background-color: #ccffcc;
+	color: #007700;
 	text-align: center;
 }
 

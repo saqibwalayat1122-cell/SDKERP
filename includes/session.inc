@@ -11,7 +11,7 @@
 ***********************************************************************/
 define('VARLIB_PATH', $path_to_root.'/tmp');
 define('VARLOG_PATH', $path_to_root.'/tmp');
-define('SECURE_ONLY', NULL); // if you really need also http (unsecure) access allowed, you can set this to NULL
+define('SECURE_ONLY', false); // if you really need also http (unsecure) access allowed, you can set this to NULL
 
 class SessionManager
 {
@@ -39,21 +39,16 @@ class SessionManager
 			{
 				// Reset session data and regenerate id
 				$_SESSION = array();
-				// Use X-Forwarded-For if behind a proxy (e.g. Railway)
-				$_SESSION['IPaddress'] = !empty($_SERVER['HTTP_X_FORWARDED_FOR'])
-					? trim(explode(',', $_SERVER['HTTP_X_FORWARDED_FOR'])[0])
-					: $_SERVER['REMOTE_ADDR'];
+				$_SESSION['IPaddress'] = $_SERVER['REMOTE_ADDR'];
 				$_SESSION['userAgent'] = @$_SERVER['HTTP_USER_AGENT'];
 				$this->regenerateSession();
-			}
+
 			// Give a 5% chance of the session id changing on any request
-			// Commented out to prevent unexpected logouts due to overlapping AJAX calls
-			/*
+			}
 			elseif (rand(1, 100) <= 5)
 			{
 				$this->regenerateSession();
 			}
-			*/
 		}
 		else
 		{
@@ -68,12 +63,7 @@ class SessionManager
 		if (!isset($_SESSION['IPaddress']) || !isset($_SESSION['userAgent']))
 			return false;
 
-		// Use X-Forwarded-For if behind a proxy (e.g. Railway)
-		$client_ip = !empty($_SERVER['HTTP_X_FORWARDED_FOR'])
-			? trim(explode(',', $_SERVER['HTTP_X_FORWARDED_FOR'])[0])
-			: $_SERVER['REMOTE_ADDR'];
-
-		if ($_SESSION['IPaddress'] != $client_ip)
+		if ($_SESSION['IPaddress'] != $_SERVER['REMOTE_ADDR'])
 			return false;
 
 		if ( $_SESSION['userAgent'] != @$_SERVER['HTTP_USER_AGENT'])
@@ -405,7 +395,6 @@ foreach ($installed_extensions as $ext)
 		include_once($path_to_root.'/'.$ext['path'].'/hooks.php');
 }
 
-ini_set('session.save_path', VARLIB_PATH.'/');
 ini_set('session.gc_maxlifetime', 36000); // moved from below.
 
 $Session_manager = new SessionManager();
@@ -443,7 +432,7 @@ if ($SysPrefs->error_logfile != '') {
 	to avoid unexpeced session timeouts.
 	Make sure this directory exists and is writable!
 */
-// session save path has been moved to before session start to prevent unexpected timeouts
+// ini_set('session.save_path', VARLIB_PATH.'/');
 
 // ini_set('session.gc_maxlifetime', 36000); // 10hrs - moved to before session_manager
 

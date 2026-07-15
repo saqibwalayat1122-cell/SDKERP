@@ -643,11 +643,7 @@ function user_js_cache($id=null)
 function session_timeout()
 {
 	$tout = @get_company_pref('login_tout'); // mask warning for db ver. 2.2
-	$tout = $tout ? $tout : ini_get('session.gc_maxlifetime');
-	if ($tout < 36000) {
-		$tout = 36000; // Enforce minimum 10 hours
-	}
-	return $tout;
+	return $tout ? $tout : ini_get('session.gc_maxlifetime');
 }
 
 //-----------------------------------------------------------------------------
