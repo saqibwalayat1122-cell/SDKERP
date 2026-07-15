@@ -85,8 +85,8 @@ function error_handler($errno, $errstr, $file, $line) {
 
 	$bt = isset($SysPrefs) && $SysPrefs->go_debug>1 ? get_backtrace(true, 1) : array();
 
-	// error_reporting!=cur_error_level when messages are set off with @ 
-	if ($cur_error_level == error_reporting()) {
+	// error_reporting() is 0 (or E_ERROR on PHP 8+) when messages are set off with @
+	if (error_reporting() !== 0) {
 		if ($errno & $cur_error_level) {
 			// suppress duplicated errors
 			if (!in_array(array($errno, $errstr, $file, $line, @$bt), $messages))
