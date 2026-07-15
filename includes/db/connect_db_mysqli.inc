@@ -12,6 +12,11 @@
 define('DB_DUPLICATE_ERROR', 1062);
 define('SQL_MODE', 'STRICT_ALL_TABLES'); // prevents SQL injection with silent field content truncation
 
+// Disable mysqli exception throwing in PHP 8.1+ to prevent fatal uncaught exceptions
+if (function_exists('mysqli_report')) {
+	mysqli_report(MYSQLI_REPORT_OFF);
+}
+
 $db_last_inserted_id = 0;
 
 function set_global_connection($company=-1)
@@ -204,6 +209,11 @@ function db_create_db($connection)
 
 	$db = mysqli_connect($connection["host"], $connection["dbuser"], $connection["dbpassword"], "",
 		!empty($connection["port"]) ? $connection["port"] : 3306); // default port in mysql is 3306
+
+	if (!$db)
+	{
+		return 0;
+	}
 
 	if (!mysqli_select_db($db, $connection["dbname"]))
 	{
