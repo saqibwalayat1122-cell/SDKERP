@@ -45,10 +45,10 @@ class SessionManager
 
 			// Give a 5% chance of the session id changing on any request
 			}
-			elseif (rand(1, 100) <= 5)
+			/*elseif (rand(1, 100) <= 5)
 			{
 				$this->regenerateSession();
-			}
+			}*/
 		}
 		else
 		{
