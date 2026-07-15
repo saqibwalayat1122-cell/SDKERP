@@ -210,6 +210,9 @@ function db_create_db($connection)
 	$db = mysqli_connect($connection["host"], $connection["dbuser"], $connection["dbpassword"], "",
 		!empty($connection["port"]) ? $connection["port"] : 3306); // default port in mysql is 3306
 
+	if (!$db)
+		return 0;
+
 	if (!mysqli_select_db($db, $connection["dbname"]))
 	{
 		$sql = "CREATE DATABASE IF NOT EXISTS `" . $connection["dbname"] . "`"
