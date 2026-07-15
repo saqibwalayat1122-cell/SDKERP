@@ -12,6 +12,10 @@
 $page_security = 'SA_OPEN';
 $path_to_root="..";
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 if (file_exists($path_to_root.'/config_db.php'))
 	header("Location: $path_to_root/index.php");
 
@@ -190,15 +194,16 @@ function do_install() {
 
 if (!isset($_SESSION['inst_set']))  // default settings
 	$_SESSION['inst_set'] = array(
-		'host'=>'localhost', 
-		'port' => '', // 3306
-		'dbuser' => 'root',
-		'dbpassword' => '',
-		'username' => 'admin',
-		'tbpref' => '0_',
-		'admin' => 'admin',
-		'inst_lang' => 'C',
-		'collation' => 'xx',
+		'host'       => getenv('MYSQLHOST') ?: 'localhost',
+		'port'       => getenv('MYSQLPORT') ?: '', // 3306
+		'dbuser'     => getenv('MYSQLUSER') ?: 'root',
+		'dbpassword' => getenv('MYSQLPASSWORD') ?: '',
+		'dbname'     => getenv('MYSQLDATABASE') ?: '',
+		'username'   => 'admin',
+		'tbpref'     => '0_',
+		'admin'      => 'admin',
+		'inst_lang'  => 'C',
+		'collation'  => 'xx',
 	);
 
 if (!@$_POST['Tests'])

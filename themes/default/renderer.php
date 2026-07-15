@@ -132,12 +132,12 @@
 			{
 				echo "<table align='center' id='footer'>\n";
 				echo "<tr>\n";
-				echo "<td align='center' class='footer'><a target='_blank' href='".$SysPrefs->power_url."' tabindex='-1'>".$SysPrefs->app_title
-					." $version - " . _("Theme:") . " " . user_theme() . " - ".show_users_online()."</a></td>\n";
+				echo "<td align='center' class='footer'><a target='_blank' href='".$SysPrefs->power_url."' tabindex='-1'><font color='#ffffff'>".$SysPrefs->app_title
+					." $version - " . _("Theme:") . " " . user_theme() . " - ".show_users_online()."</font></a></td>\n";
 				echo "</tr>\n";
 				echo "<tr>\n";
 				echo "<td align='center' class='footer'><a target='_blank' href='".$SysPrefs->power_url
-					."' tabindex='-1'>".$SysPrefs->power_by."</a></td>\n";
+					."' tabindex='-1'><font color='#ffff00'>".$SysPrefs->power_by."</font></a></td>\n";
 				echo "</tr>\n";
 				if ($SysPrefs->allow_demo_mode)
 				{
