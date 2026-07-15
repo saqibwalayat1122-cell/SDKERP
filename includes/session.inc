@@ -361,15 +361,8 @@ function html_cleanup(&$parms)
 //
 function login_timeout()
 {
-	// skip timeout on logout page
-	if ($_SESSION["wa_current_user"]->logged) {
-		$tout = $_SESSION["wa_current_user"]->timeout;
-		if ($tout && (time() > $_SESSION["wa_current_user"]->last_act + $tout))
-		{
-			$_SESSION["wa_current_user"]->logged = false;
-		}
-		$_SESSION["wa_current_user"]->last_act = time();
-	}
+	// Disable timeout check to prevent session timeouts completely
+	return;
 }
 //============================================================================
 if (!isset($path_to_root))
