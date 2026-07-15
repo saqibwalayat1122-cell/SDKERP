@@ -14,6 +14,11 @@ define('SQL_MODE', 'STRICT_ALL_TABLES'); // prevents SQL injection with silent f
 
 $db_last_inserted_id = 0;
 
+if (function_exists('mysqli_report')) {
+	mysqli_report(MYSQLI_REPORT_OFF);
+}
+
+
 function set_global_connection($company=-1)
 {
 	global $db, $path_to_root, $db_connections, $SysPrefs;
@@ -204,6 +209,9 @@ function db_create_db($connection)
 
 	$db = mysqli_connect($connection["host"], $connection["dbuser"], $connection["dbpassword"], "",
 		!empty($connection["port"]) ? $connection["port"] : 3306); // default port in mysql is 3306
+
+	if (!$db)
+		return 0;
 
 	if (!mysqli_select_db($db, $connection["dbname"]))
 	{

@@ -8,6 +8,7 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
     See the License here <http://www.gnu.org/licenses/gpl-3.0.html>.
+	hello
 ***********************************************************************/
 
 include_once($path_to_root . "/includes/prefs/userprefs.inc");
@@ -643,11 +644,7 @@ function user_js_cache($id=null)
 function session_timeout()
 {
 	$tout = @get_company_pref('login_tout'); // mask warning for db ver. 2.2
-	$tout = $tout ? $tout : ini_get('session.gc_maxlifetime');
-	if ($tout < 36000) {
-		$tout = 36000; // Enforce minimum 10 hours
-	}
-	return $tout;
+	return $tout ? $tout : ini_get('session.gc_maxlifetime');
 }
 
 //-----------------------------------------------------------------------------
