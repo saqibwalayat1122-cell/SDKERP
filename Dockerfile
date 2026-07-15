@@ -3,7 +3,7 @@ FROM php:8.5-apache
 # Install MySQL/MySQLi extension and other required extensions
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-# Fix MPM conflict - disable prefork, enable event (or vice versa)
+# Fix MPM conflict - keep only prefork
 RUN a2dismod mpm_event 2>/dev/null; a2dismod mpm_worker 2>/dev/null; a2enmod mpm_prefork
 
 # Enable Apache mod_rewrite
@@ -21,10 +21,10 @@ RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 777 /var/www/html/tmp \
     && chmod -R 777 /var/www/html/company
 
-# Use Railway's PORT environment variable
-RUN sed -i 's/Listen 80/Listen ${PORT}/g' /etc/apache2/ports.conf \
-    && sed -i 's/:80/:${PORT}/g' /etc/apache2/sites-available/000-default.conf
+# Make entrypoint executable
+RUN chmod +x /var/www/html/docker-entrypoint.sh
 
 EXPOSE 80
 
-CMD ["apache2-foreground"]
+# Use entrypoint script to set PORT at runtime
+CMD ["/var/www/html/docker-entrypoint.sh"]
