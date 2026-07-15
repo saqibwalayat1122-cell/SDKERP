@@ -1,10 +1,12 @@
-FROM php:8.5-apache
+FROM php:8.2-apache
 
 # Install MySQL/MySQLi extension and other required extensions
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-# Fix MPM conflict - keep only prefork
-RUN a2dismod mpm_event 2>/dev/null; a2dismod mpm_worker 2>/dev/null; a2enmod mpm_prefork
+# Remove all MPM modules and enable only prefork
+RUN rm -f /etc/apache2/mods-enabled/mpm_*.conf /etc/apache2/mods-enabled/mpm_*.load \
+    && ln -sf /etc/apache2/mods-available/mpm_prefork.conf /etc/apache2/mods-enabled/mpm_prefork.conf \
+    && ln -sf /etc/apache2/mods-available/mpm_prefork.load /etc/apache2/mods-enabled/mpm_prefork.load
 
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
