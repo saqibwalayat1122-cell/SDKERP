@@ -14,6 +14,11 @@ define('SQL_MODE', 'STRICT_ALL_TABLES'); // prevents SQL injection with silent f
 
 $db_last_inserted_id = 0;
 
+if (function_exists('mysqli_report')) {
+	mysqli_report(MYSQLI_REPORT_OFF);
+}
+
+
 function set_global_connection($company=-1)
 {
 	global $db, $path_to_root, $db_connections, $SysPrefs;

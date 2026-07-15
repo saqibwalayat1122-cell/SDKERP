@@ -12,6 +12,10 @@
 $page_security = 'SA_OPEN';
 $path_to_root="..";
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 if (file_exists($path_to_root.'/config_db.php'))
 	header("Location: $path_to_root/index.php");
 
