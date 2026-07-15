@@ -11,7 +11,7 @@
 ***********************************************************************/
 define('VARLIB_PATH', $path_to_root.'/tmp');
 define('VARLOG_PATH', $path_to_root.'/tmp');
-define('SECURE_ONLY', false); // if you really need also http (unsecure) access allowed, you can set this to NULL
+define('SECURE_ONLY', true); // if you really need also http (unsecure) access allowed, you can set this to NULL
 
 class SessionManager
 {
@@ -45,12 +45,10 @@ class SessionManager
 
 			// Give a 5% chance of the session id changing on any request
 			}
-			/*
 			elseif (rand(1, 100) <= 5)
 			{
 				$this->regenerateSession();
 			}
-			*/
 		}
 		else
 		{
@@ -353,8 +351,15 @@ function html_cleanup(&$parms)
 //
 function login_timeout()
 {
-	// Disable timeout check to prevent session timeouts completely
-	return;
+	// skip timeout on logout page
+	if ($_SESSION["wa_current_user"]->logged) {
+		$tout = $_SESSION["wa_current_user"]->timeout;
+		if ($tout && (time() > $_SESSION["wa_current_user"]->last_act + $tout))
+		{
+			$_SESSION["wa_current_user"]->logged = false;
+		}
+		$_SESSION["wa_current_user"]->last_act = time();
+	}
 }
 //============================================================================
 if (!isset($path_to_root))
