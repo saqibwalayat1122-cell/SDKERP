@@ -194,15 +194,16 @@ function do_install() {
 
 if (!isset($_SESSION['inst_set']))  // default settings
 	$_SESSION['inst_set'] = array(
-		'host'=>'localhost', 
-		'port' => '', // 3306
-		'dbuser' => 'root',
-		'dbpassword' => '',
-		'username' => 'admin',
-		'tbpref' => '0_',
-		'admin' => 'admin',
-		'inst_lang' => 'C',
-		'collation' => 'xx',
+		'host'       => getenv('MYSQLHOST') ?: 'localhost',
+		'port'       => getenv('MYSQLPORT') ?: '', // 3306
+		'dbuser'     => getenv('MYSQLUSER') ?: 'root',
+		'dbpassword' => getenv('MYSQLPASSWORD') ?: '',
+		'dbname'     => getenv('MYSQLDATABASE') ?: '',
+		'username'   => 'admin',
+		'tbpref'     => '0_',
+		'admin'      => 'admin',
+		'inst_lang'  => 'C',
+		'collation'  => 'xx',
 	);
 
 if (!@$_POST['Tests'])
