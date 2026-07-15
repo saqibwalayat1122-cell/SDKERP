@@ -63,8 +63,10 @@ class SessionManager
 		if (!isset($_SESSION['IPaddress']) || !isset($_SESSION['userAgent']))
 			return false;
 
-		if ($_SESSION['IPaddress'] != $_SERVER['REMOTE_ADDR'])
-			return false;
+		// Behind a reverse proxy (like Railway), REMOTE_ADDR can change dynamically.
+		// So we do not compare IP addresses to prevent immediate logout issues.
+		// if ($_SESSION['IPaddress'] != $_SERVER['REMOTE_ADDR'])
+		// 	return false;
 
 		if ( $_SESSION['userAgent'] != @$_SERVER['HTTP_USER_AGENT'])
 			return false;
