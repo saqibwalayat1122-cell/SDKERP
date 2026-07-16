@@ -54,6 +54,11 @@ function defaultCompany()
 
 	$login_timeout = $_SESSION["wa_current_user"]->last_act;
 
+	$login_action = $_SESSION['timeout']['uri'];
+	if (basename($_SERVER['PHP_SELF']) == 'timeout.php') {
+		$login_action = $_SERVER['PHP_SELF'];
+	}
+
 	$title = $login_timeout ? _('Authorization timeout') : $SysPrefs->app_title." ".$version." - "._("Login");
 	$encoding = isset($_SESSION['language']->encoding) ? $_SESSION['language']->encoding : "iso-8859-1";
 	$rtl = isset($_SESSION['language']->dir) ? $_SESSION['language']->dir : "ltr";
@@ -79,8 +84,6 @@ function defaultCompany()
 	
 	div_start('_page_body');
 	br();br();
-	start_form(false, false, $_SESSION['timeout']['uri'], "loginform");
-	start_table(false, "class='login'");
 
 	start_row();
 	echo "<td align='center' colspan=2>";
@@ -99,6 +102,12 @@ function defaultCompany()
 	$allow = SECURE_ONLY !== true ? true : (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || $_SERVER['SERVER_NAME'] === "localhost";
 
 	if ($allow) {
+
+		if (basename($_SERVER['PHP_SELF']) == 'timeout.php') {
+			start_form(false, false, $_SERVER['PHP_SELF'], "loginform");
+		} else {
+			start_form(false, false, $login_action, "loginform");
+		}
 
 		text_row(_("User name"), "user_name_entry_field", $value, 20, 30);
 
