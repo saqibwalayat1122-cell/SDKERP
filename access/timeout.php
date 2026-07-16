@@ -16,14 +16,9 @@ $path_to_root = '..';
 $page_security = 'SA_OPEN';
 include_once($path_to_root . "/includes/session.inc");
 
-ob_start();
-include($path_to_root .'/access/login.php');
-$page = ob_get_clean();
-
 if (get_post('SubmitUser') && $_SESSION['wa_current_user']->logged_in()) {
-	// After successful login repeat last ajax call when opened as timeout popup.
-	// Otherwise redirect to the main application page.
-	$script = "<script>
+	// After successful login, redirect from timeout popup before showing login page.
+	echo "<script>
 	var o = opener;
 	try {
 		if (o && o.JsHttpRequest && typeof o.JsHttpRequest.request == 'function') {
@@ -39,6 +34,7 @@ if (get_post('SubmitUser') && $_SESSION['wa_current_user']->logged_in()) {
 		window.location = '$path_to_root/index.php';
 	}
 </script><noscript><center><p>Login successful. <a href='$path_to_root/index.php'>Click here to continue</a>.</p></center></noscript>";
-	$page = preg_replace('~</body>\s*</html>~i', $script.'</body></html>', $page, 1);
+	exit;
 }
-echo $page;
+
+include($path_to_root .'/access/login.php');
