@@ -1,6 +1,22 @@
 <?php
 // PHP router script for built-in server
-// This handles .htaccess-like behavior for PHP built-in server
+// Fixes Railway reverse proxy HTTPS detection for session cookies
+
+// Fix: Railway runs behind HTTPS proxy. X-Forwarded-Proto = https
+// but $_SERVER['HTTPS'] is not set. Set it so session cookies work correctly.
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+    $_SERVER['HTTPS'] = 'on';
+}
+
+// Also fix the host if forwarded
+if (isset($_SERVER['HTTP_X_FORWARDED_HOST'])) {
+    $_SERVER['HTTP_HOST'] = $_SERVER['HTTP_X_FORWARDED_HOST'];
+}
+
+// Ensure session cookies use correct settings for HTTPS behind proxy
+ini_set('session.cookie_secure', '1');
+ini_set('session.cookie_httponly', '1');
+ini_set('session.cookie_samesite', 'Lax');
 
 $uri = $_SERVER['REQUEST_URI'];
 $path = parse_url($uri, PHP_URL_PATH);
@@ -8,11 +24,6 @@ $file = __DIR__ . $path;
 
 // If the file exists and is not a directory, serve it directly
 if ($path !== '/' && file_exists($file) && !is_dir($file)) {
-    // Let PHP serve .php files, return false for static files
-    if (pathinfo($file, PATHINFO_EXTENSION) === 'php') {
-        return false;
-    }
-    // For static files (css, js, images, etc.), serve them
     return false;
 }
 
