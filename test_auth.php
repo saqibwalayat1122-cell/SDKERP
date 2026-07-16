@@ -1,24 +1,41 @@
 <?php
 header('Content-Type: text/plain');
 
-$path_to_root = '.';
-include_once('./includes/session.inc');
+$host = getenv('MYSQLHOST') ?: 'mysql.railway.internal';
+$port = getenv('MYSQLPORT') ?: '3306';
+$dbname = getenv('MYSQLDATABASE') ?: 'railway';
+$dbuser = getenv('MYSQLUSER') ?: 'root';
+$dbpassword = getenv('MYSQLPASSWORD') ?: '';
 
-set_global_connection();
+echo "Connecting directly to MySQL to test auth...\n";
 
-echo "Testing get_user_auth('admin', md5('admin123'))...\n";
+$conn = @mysqli_connect($host, $dbuser, $dbpassword, $dbname, $port);
+
+if (!$conn) {
+    echo "Connection failed: " . mysqli_connect_error() . "\n";
+    exit;
+}
+
+echo "Connection successful!\n\n";
+
 $md5 = md5('admin123');
-echo "MD5 of admin123 is: $md5\n";
+echo "Checking admin user with password md5 of 'admin123' ($md5):\n";
 
-$res = get_user_auth('admin', $md5);
-echo "Result of get_user_auth: " . ($res ? "TRUE (Auth Succeeded!)" : "FALSE (Auth Failed!)") . "\n";
-
-// Let's run the SQL query manually to see what it returns
 $sql = "SELECT * FROM 0_users WHERE user_id = 'admin' AND password = '$md5'";
-$db_res = db_query($sql, "test");
-echo "Manual SQL Rows count: " . db_num_rows($db_res) . "\n";
-if (db_num_rows($db_res) > 0) {
-    $row = db_fetch($db_res);
-    echo "User name in DB: " . $row['real_name'] . "\n";
-    echo "Inactive status: " . $row['inactive'] . "\n";
+$res = mysqli_query($conn, $sql);
+
+if ($res) {
+    $rows = mysqli_num_rows($res);
+    echo "Manual SQL Rows count: " . $rows . "\n";
+    if ($rows > 0) {
+        $row = mysqli_fetch_assoc($res);
+        echo "User ID in DB: " . $row['user_id'] . "\n";
+        echo "Real Name: " . $row['real_name'] . "\n";
+        echo "Inactive: " . $row['inactive'] . "\n";
+        echo "Authentication status: SUCCESS!\n";
+    } else {
+        echo "Authentication status: FAILED! No matching user/password combination.\n";
+    }
+} else {
+    echo "Query failed: " . mysqli_error($conn) . "\n";
 }
