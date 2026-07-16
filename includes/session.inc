@@ -23,6 +23,12 @@ class SessionManager
 		// Set SSL level
 		$https = isset($secure) ? $secure : (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off');
 
+		// Set session save path BEFORE session_start (must be before)
+		$save_path = defined('VARLIB_PATH') ? VARLIB_PATH.'/' : sys_get_temp_dir().'/';
+		if (is_writable($save_path)) {
+			ini_set('session.save_path', $save_path);
+		}
+
 		// Set session cookie options
 		if (version_compare(PHP_VERSION, '5.2', '<')) // avoid failure on older php versions
 			session_set_cookie_params($limit, $path, $domain, $https);
@@ -31,30 +37,21 @@ class SessionManager
 
 		session_start();
 
-		// Make sure the session hasn't expired, and destroy it if it has
-		if ($this->validateSession())
-		{
-			// Check to see if the session is new or a hijacking attempt
-			if(!$this->preventHijacking())
-			{
-				// Reset session data and regenerate id
-				$_SESSION = array();
-				$_SESSION['IPaddress'] = $_SERVER['REMOTE_ADDR'];
-				$_SESSION['userAgent'] = @$_SERVER['HTTP_USER_AGENT'];
-				$this->regenerateSession();
-
-			// Give a 5% chance of the session id changing on any request
-			}
-			elseif (rand(1, 100) <= 5)
-			{
-				$this->regenerateSession();
-			}
+		// Set IPaddress/userAgent on new sessions (for hijacking detection)
+		// but do NOT destroy sessions just because these aren't set yet
+		// (Railway reverse proxy can cause IP mismatches on first request)
+		if (!isset($_SESSION['IPaddress'])) {
+			$_SESSION['IPaddress'] = $_SERVER['REMOTE_ADDR'];
+			$_SESSION['userAgent'] = @$_SERVER['HTTP_USER_AGENT'];
 		}
-		else
-		{
+
+		// Only reset if session is truly invalid (expired)
+		if (!$this->validateSession()) {
 			$_SESSION = array();
 			session_destroy();
 			session_start();
+			$_SESSION['IPaddress'] = $_SERVER['REMOTE_ADDR'];
+			$_SESSION['userAgent'] = @$_SERVER['HTTP_USER_AGENT'];
 		}
 	}
 
@@ -434,7 +431,8 @@ if ($SysPrefs->error_logfile != '') {
 	to avoid unexpeced session timeouts.
 	Make sure this directory exists and is writable!
 */
-ini_set('session.save_path', VARLIB_PATH.'/');
+// session.save_path is now set inside SessionManager->sessionStart() BEFORE session_start().
+// ini_set('session.save_path', VARLIB_PATH.'/'); // moved into SessionManager
 
 // ini_set('session.gc_maxlifetime', 36000); // 10hrs - moved to before session_manager
 
