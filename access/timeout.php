@@ -30,4 +30,5 @@ if (get_post('SubmitUser') && $_SESSION['wa_current_user']->logged_in()) {
 		window.location = '$path_to_root/index.php';
 	}
 </script>";
+	echo "<noscript><center><p>Login successful. <a href='$path_to_root/index.php'>Click here to continue</a>.</p></center></noscript>";
 }
