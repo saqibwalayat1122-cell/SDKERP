@@ -22,6 +22,16 @@ $uri = $_SERVER['REQUEST_URI'];
 $path = parse_url($uri, PHP_URL_PATH);
 $file = __DIR__ . $path;
 
+// 404 for missing static files (never route them to index.php!)
+$ext = pathinfo($path, PATHINFO_EXTENSION);
+if ($ext && $ext !== 'php') {
+    if (!file_exists($file)) {
+        header("HTTP/1.1 404 Not Found");
+        echo "404 Not Found";
+        exit;
+    }
+}
+
 // If the file exists and is not a directory, serve it directly
 if ($path !== '/' && file_exists($file) && !is_dir($file)) {
     return false;
