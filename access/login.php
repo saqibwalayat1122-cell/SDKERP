@@ -84,6 +84,8 @@ function defaultCompany()
 	
 	div_start('_page_body');
 	br();br();
+	start_form(false, false, $login_action, "loginform");
+	start_table(false, "class='login'");
 
 	start_row();
 	echo "<td align='center' colspan=2>";
@@ -102,12 +104,6 @@ function defaultCompany()
 	$allow = SECURE_ONLY !== true ? true : (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || $_SERVER['SERVER_NAME'] === "localhost";
 
 	if ($allow) {
-
-		if (basename($_SERVER['PHP_SELF']) == 'timeout.php') {
-			start_form(false, false, $_SERVER['PHP_SELF'], "loginform");
-		} else {
-			start_form(false, false, $login_action, "loginform");
-		}
 
 		text_row(_("User name"), "user_name_entry_field", $value, 20, 30);
 
