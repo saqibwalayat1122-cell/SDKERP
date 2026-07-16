@@ -105,17 +105,13 @@ function cache_js_file($fpath, $text)
 function force_open($fname)
 {
 	$file = pathinfo($fname);
+	$dir = $file['dirname'];
 
-	$path = $fname[0] == '/' ? '/' : '';
-	$tree = explode('/', $file['dirname']);
-	foreach($tree as $level) {
-		$path .= $level;
-		if (!file_exists($path)) {
-			if (!mkdir($path)) {
-				return null;
-			}
+	// Use recursive mkdir so nested paths like company/0/js_cache/1/ are created
+	if (!file_exists($dir)) {
+		if (!mkdir($dir, 0777, true)) {
+			return null;
 		}
-		$path .= '/';
 	}
 	return fopen($fname, 'w');
 }

@@ -9,9 +9,14 @@ RUN echo "display_errors=On\nerror_reporting=E_ALL\nlog_errors=On" > /usr/local/
 # Copy application files
 COPY . /var/www/html/
 
-# Set proper permissions
+# Set proper permissions and pre-create writable directories
 RUN chmod -R 777 /var/www/html/tmp \
-    && chmod -R 777 /var/www/html/company
+    && chmod -R 777 /var/www/html/company \
+    && mkdir -p /var/www/html/company/0/js_cache \
+    && mkdir -p /var/www/html/company/0/backup \
+    && mkdir -p /var/www/html/company/0/pdf_files \
+    && mkdir -p /var/www/html/company/0/images \
+    && chmod -R 777 /var/www/html/company/0
 
 WORKDIR /var/www/html
 
